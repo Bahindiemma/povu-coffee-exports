@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-espresso: #0C0906;
+  --color-surface: #131009;
+  --color-card: #1C1510;
+  --color-gold: #C9913A;
+  --color-gold-light: #DFB468;
+  --color-cream: #F0E6CC;
+  --color-kyegegwa: #1E4430;
+  --font-display: 'Merienda', Georgia, serif;
+  --font-sans: 'Roboto', system-ui, sans-serif;
+  --font-heading: 'Oswald', system-ui, sans-serif;
+}

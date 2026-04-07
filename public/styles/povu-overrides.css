@@ -1,0 +1,156 @@
+/* ══ POVU Brand Color Overrides for Kaffen Template ══ */
+/* Gold: #C9913A / Gold Light: #DFB468 / Background: #0C0906 / Cream: #F0E6CC */
+
+:root {
+  --povu-gold: #C9913A;
+  --povu-gold-light: #DFB468;
+  --povu-bg: #0C0906;
+  --povu-surface: #131009;
+  --povu-card: #1C1510;
+  --povu-cream: #F0E6CC;
+  --povu-green: #1E4430;
+}
+
+/* Base background */
+body, .bg {
+  background-color: #0C0906 !important;
+}
+
+/* Override Kaffen's brown/bronze (#b99272) with POVU gold (#C9913A) */
+a:hover,
+.kf-subtitle,
+.kf-choose-list .name:hover,
+.kf-menu-item .price,
+.kf-numbers-item .num,
+.kf-numbers-item-2 .num,
+.kf-numbers-item-2 .icon i,
+.kf-services-item-2 .image i,
+.kf-testimonials .stars i,
+.kf-testimonials-2 .stars i,
+.kf-blog-grid-item .kf-date i,
+.kf-footer h5,
+.kf-f-contact em,
+.kf-h-group em,
+.kf-h-title {
+  color: #C9913A !important;
+}
+
+/* Buttons */
+.kf-btn span {
+  color: #0C0906;
+}
+.kf-btn {
+  background-color: #C9913A !important;
+  border-color: #C9913A !important;
+}
+.kf-btn:hover {
+  background-color: #DFB468 !important;
+  border-color: #DFB468 !important;
+}
+.kf-btn.dark-btn {
+  background-color: transparent !important;
+  border-color: rgba(201, 145, 58, 0.42) !important;
+}
+.kf-btn.dark-btn span {
+  color: rgba(240, 230, 204, 0.7);
+}
+.kf-btn.dark-btn:hover {
+  border-color: #C9913A !important;
+}
+.kf-btn.dark-btn:hover span {
+  color: #F0E6CC;
+}
+
+/* Header topline */
+.kf-topline {
+  background-color: rgba(12, 9, 6, 0.95);
+  border-bottom: 0.5px solid rgba(201, 145, 58, 0.18);
+}
+
+/* Navbar */
+.kf-navbar {
+  background-color: rgba(12, 9, 6, 0.97);
+  backdrop-filter: blur(16px);
+}
+.kf-header.fixed .kf-navbar {
+  background-color: rgba(12, 9, 6, 0.98);
+  border-bottom: 0.5px solid rgba(201, 145, 58, 0.18);
+}
+
+/* Section backgrounds */
+.section-bg {
+  background-color: #131009 !important;
+}
+
+/* Footer */
+.kf-footer {
+  background-color: #0C0906;
+  border-top: 0.5px solid rgba(201, 145, 58, 0.18);
+}
+.kf-copyright {
+  border-top: 0.5px solid rgba(201, 145, 58, 0.18);
+  color: rgba(240, 230, 204, 0.3);
+}
+
+/* Social icons */
+.kf-h-social a:hover i {
+  color: #C9913A !important;
+}
+
+/* Menu items border */
+.kf-menu-item {
+  border-bottom-color: rgba(201, 145, 58, 0.12);
+}
+
+/* Scroll animate visibility */
+.scroll-animate {
+  visibility: hidden;
+}
+.scroll-animate.animate__active {
+  visibility: visible;
+}
+
+/* Logo styling */
+.kf-logo img {
+  max-height: 55px;
+  width: auto;
+}
+.kf-footer .kf-logo img {
+  max-height: 50px;
+}
+
+/* Inner page headers */
+.kf-started-inner {
+  min-height: 340px;
+}
+
+/* Swiper pagination */
+.swiper-pagination-bullet {
+  background: rgba(201, 145, 58, 0.3) !important;
+}
+.swiper-pagination-bullet-active {
+  background: #C9913A !important;
+}
+
+/* Form fields override */
+.kf-field input,
+.kf-field textarea,
+.kf-field select {
+  border-color: rgba(201, 145, 58, 0.18);
+  background: rgba(28, 21, 16, 0.5);
+  color: #F0E6CC;
+}
+.kf-field input:focus,
+.kf-field textarea:focus,
+.kf-field select:focus {
+  border-color: #C9913A;
+}
+.kf-field input::placeholder,
+.kf-field textarea::placeholder {
+  color: rgba(240, 230, 204, 0.2);
+}
+
+/* Parallax overlay */
+.kf-parallax::before {
+  background: rgba(12, 9, 6, 0.75);
+}
