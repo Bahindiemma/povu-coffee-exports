@@ -1,4 +1,5 @@
 'use client';
+import Image from "next/image";
 
 import MainSlider from '@/components/kaffe/MainSlider';
 import TestimonialsCarousel from '@/components/kaffe/TestimonialsCarousel';
@@ -38,7 +39,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="kf-about-quote element-anim-1 scroll-animate" data-animate="active">
-                <img src="/images/quote_img.png" alt="quote" />
+                <Image src="/images/quote_img.png" alt="quote" width={40} height={40} />
                 <div>
                   The first signal of quality is the foam on your espresso. Kyegegwa Robusta delivers
                   it every single time.
@@ -47,7 +48,7 @@ export default function HomePage() {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-7">
               <div className="kf-about-image element-anim-1 scroll-animate" data-animate="active">
-                <img src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=800&q=80" alt="POVU Coffee beans from Kyegegwa" />
+                <Image src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=800&q=80" alt="POVU Coffee beans from Kyegegwa" width={800} height={600} className="w-full h-auto" />
               </div>
             </div>
           </div>
@@ -62,7 +63,7 @@ export default function HomePage() {
               <div className="kf-services-item element-anim-1 scroll-animate" data-animate="active">
                 <div className="image kf-image-hover">
                   <Link href="/product/roasted-robusta-beans">
-                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&q=80" alt="Roasted Beans" />
+                    <Image src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&q=80" alt="Roasted Beans" width={600} height={400} className="w-full h-auto" />
                   </Link>
                 </div>
                 <div className="desc">
@@ -77,7 +78,7 @@ export default function HomePage() {
               <div className="kf-services-item element-anim-1 scroll-animate" data-animate="active">
                 <div className="image kf-image-hover">
                   <Link href="/product/premium-ground-coffee">
-                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=600&q=80" alt="Ground Coffee" />
+                    <Image src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=600&q=80" alt="Ground Coffee" width={600} height={400} className="w-full h-auto" />
                   </Link>
                 </div>
                 <div className="desc">
@@ -92,7 +93,7 @@ export default function HomePage() {
               <div className="kf-services-item element-anim-1 scroll-animate" data-animate="active">
                 <div className="image kf-image-hover">
                   <Link href="/export">
-                    <img src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=600&q=80" alt="Export Services" />
+                    <Image src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=600&q=80" alt="Export Services" width={600} height={400} className="w-full h-auto" />
                   </Link>
                 </div>
                 <div className="desc">
@@ -129,7 +130,7 @@ export default function HomePage() {
                     <div className="kf-menu-item element-anim-1 scroll-animate" data-animate="active">
                       <div className="image kf-image-hover">
                         <Link href={`/product/${product.slug}`}>
-                          <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&q=80" alt={product.name} />
+                          <Image src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&q=80" alt={product.name} width={400} height={300} className="w-full h-auto" />
                         </Link>
                       </div>
                       <div className="desc">
@@ -160,7 +161,7 @@ export default function HomePage() {
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <div className="kf-choose-image element-anim-1 scroll-animate" data-animate="active">
-                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80" alt="POVU Coffee Quality" />
+                <Image src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80" alt="POVU Coffee Quality" width={800} height={600} className="w-full h-auto" />
               </div>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-5 offset-lg-1 align-self-center">
@@ -183,7 +184,7 @@ export default function HomePage() {
                 <ul>
                   <li className="element-anim-1 scroll-animate" data-animate="active">
                     <div className="icon">
-                      <img src="/images/choose_icon1.png" alt="Wild-Type Genetics" />
+                      <Image src="/images/choose_icon1.png" alt="Wild-Type Genetics" width={48} height={48} />
                     </div>
                     <div className="desc">
                       <h5 className="name">Wild-Type Genetics</h5>
@@ -195,7 +196,7 @@ export default function HomePage() {
                   </li>
                   <li className="element-anim-1 scroll-animate" data-animate="active">
                     <div className="icon">
-                      <img src="/images/choose_icon2.png" alt="Digital Traceability" />
+                      <Image src="/images/choose_icon2.png" alt="Digital Traceability" width={48} height={48} />
                     </div>
                     <div className="desc">
                       <h5 className="name">Digital Farmer Profiling</h5>
@@ -234,7 +235,7 @@ export default function HomePage() {
                 <div className="slide-item element-anim-1 scroll-animate" data-animate="active">
                   <div className="image kf-image-hover">
                     <a href={item.img} className="has-popup-image">
-                      <img src={item.img} alt={item.name} />
+                      <Image src={item.img} alt={item.name} width={600} height={400} className="w-full h-auto" />
                     </a>
                   </div>
                   <div className="desc">
@@ -291,7 +292,7 @@ export default function HomePage() {
                 <div className="kf-blog-grid-item element-anim-1 scroll-animate" data-animate="active">
                   <div className="image kf-image-hover">
                     <Link href={`/blog/${post.slug}`}>
-                      <img src={['https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600&q=80','https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600&q=80','https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&q=80'][index]} alt={post.title} />
+                      <Image src={['https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600&q=80','https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600&q=80','https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&q=80'][index]} alt={post.title} width={600} height={400} className="w-full h-auto" />
                     </Link>
                   </div>
                   <div className="desc">

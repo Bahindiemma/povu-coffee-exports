@@ -1,4 +1,5 @@
 'use client';
+import Image from "next/image";
 
 import { useState } from 'react';
 import { useParams } from 'next/navigation';
@@ -201,7 +202,7 @@ export default function ProductDetailPage() {
                     <div className="kf-menu-item element-anim-1 scroll-animate" data-animate="active">
                       <div className="image kf-image-hover">
                         <Link href={`/product/${otherProduct.slug}`}>
-                          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=400&q=80" alt={otherProduct.name} />
+                          <Image src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=400&q=80" alt={otherProduct.name} width={400} height={300} className="w-full h-auto" />
                         </Link>
                       </div>
                       <div className="desc">

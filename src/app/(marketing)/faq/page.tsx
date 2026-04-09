@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { faqs } from '@/lib/data/content';
+import JsonLd, { faqSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
   title: 'FAQ',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
+      <JsonLd data={faqSchema(faqs)} />
       {/* Section Started Inner */}
       <section className="section kf-started-inner">
         <div

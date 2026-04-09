@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
             <div className="kf-logo element-anim-1 scroll-animate" data-animate="active">
               <Link href="/">
-                <img src="/images/povu-logo.png" alt="POVU Coffee Exports" style={{ maxHeight: '80px' }} />
+                <Image src="/images/povu-logo.png" alt="POVU Coffee Exports" width={200} height={80} style={{ maxHeight: "80px", width: "auto" }} />
               </Link>
               <p style={{ color: '#C9913A', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.3em', marginTop: '10px', fontFamily: 'Roboto, sans-serif' }}>
                 The Crown of Every Cup

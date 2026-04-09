@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from "next/image";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -54,7 +55,7 @@ export default function StoryPage() {
                 </h3>
               </div>
               <div className="kf-about-quote element-anim-1 scroll-animate" data-animate="active">
-                <img src="/images/quote_img.png" alt="quote" />
+                <Image src="/images/quote_img.png" alt="quote" width={40} height={40} />
                 <div>
                   I did not build POVU to sell coffee. I built it to change what a cup of
                   Kyegegwa Robusta is worth — to the farmer who grew it and to the world that drinks it.

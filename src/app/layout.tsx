@@ -3,6 +3,10 @@ import './globals.css';
 import KaffeLayout from '@/components/layout/KaffeLayout';
 import CartDrawer from '@/components/shop/CartDrawer';
 import ToastProvider from '@/components/ui/Toast';
+import JsonLd, { organizationSchema, websiteSchema } from '@/components/seo/JsonLd';
+import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import BackToTop from '@/components/ui/BackToTop';
+import CookieConsent from '@/components/ui/CookieConsent';
 
 export const metadata: Metadata = {
   title: {
@@ -62,11 +66,16 @@ export default function RootLayout({
         <link rel="stylesheet" href="/styles/povu-overrides.css" />
       </head>
       <body>
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={websiteSchema} />
         <KaffeLayout>
           <main id="main-content">{children}</main>
         </KaffeLayout>
         <CartDrawer />
         <ToastProvider />
+        <WhatsAppButton />
+        <BackToTop />
+        <CookieConsent />
       </body>
     </html>
   );

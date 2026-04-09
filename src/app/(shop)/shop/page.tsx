@@ -1,4 +1,5 @@
 'use client';
+import Image from "next/image";
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -95,7 +96,7 @@ export default function ShopPage() {
                       <div className="kf-menu-item element-anim-1 scroll-animate" data-animate="active">
                         <div className="image kf-image-hover">
                           <Link href={`/product/${product.slug}`}>
-                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&q=80" alt={product.name} />
+                            <Image src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&q=80" alt={product.name} width={400} height={300} className="w-full h-auto" />
                           </Link>
                         </div>
                         <div className="desc">

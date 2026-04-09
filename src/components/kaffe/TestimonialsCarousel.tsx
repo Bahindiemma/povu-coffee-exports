@@ -1,4 +1,5 @@
 'use client';
+import Image from "next/image";
 
 import { sliderProps } from '@/kaffe/sliderProps';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -26,7 +27,7 @@ export default function TestimonialsCarousel() {
                 <SwiperSlide key={index} className="swiper-slide">
                   <div className="slide-item element-anim-1 scroll-animate" data-animate="active">
                     <div className="image">
-                      <img src={`/images/rev${(index % 3) + 1}.jpg`} alt={review.name} />
+                      <Image src={`/images/rev${(index % 3) + 1}.jpg`} alt={review.name} width={80} height={80} className="w-full h-auto" />
                     </div>
                     <div className="desc">
                       <div className="stars">
@@ -47,7 +48,7 @@ export default function TestimonialsCarousel() {
                 <SwiperSlide key={`dup-${index}`} className="swiper-slide">
                   <div className="slide-item element-anim-1 scroll-animate" data-animate="active">
                     <div className="image">
-                      <img src={`/images/rev${(index % 3) + 1}.jpg`} alt={review.name} />
+                      <Image src={`/images/rev${(index % 3) + 1}.jpg`} alt={review.name} width={80} height={80} className="w-full h-auto" />
                     </div>
                     <div className="desc">
                       <div className="stars">

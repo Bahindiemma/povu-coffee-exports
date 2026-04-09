@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from "next/image";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -70,7 +71,7 @@ export default function OriginPage() {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 offset-lg-1">
               <div className="kf-choose-image element-anim-1 scroll-animate" data-animate="active">
-                <img src="https://images.unsplash.com/photo-1524350876685-274059332603?w=800&q=80" alt="Kyegegwa farmland" />
+                <Image src="https://images.unsplash.com/photo-1524350876685-274059332603?w=800&q=80" alt="Kyegegwa farmland" width={800} height={600} className="w-full h-auto" />
               </div>
             </div>
           </div>

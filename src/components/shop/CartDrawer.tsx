@@ -1,12 +1,9 @@
 'use client';
 
 import { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Minus, Plus, Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
 import { useCartStore } from '@/lib/store/cart';
 import { useCurrencyStore } from '@/lib/store/currency';
 import { formatPrice } from '@/lib/utils/currency';
-import Button from '@/components/ui/Button';
 import Link from 'next/link';
 
 export default function CartDrawer() {
@@ -30,125 +27,141 @@ export default function CartDrawer() {
   const subtotal = currency === 'UGX' ? getSubtotal() : getSubtotalUSD();
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[400] bg-black/78"
+    <>
+      {/* Overlay */}
+      <div
+        onClick={closeCart}
+        style={{
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.78)',
+          zIndex: 400, opacity: isOpen ? 1 : 0, pointerEvents: isOpen ? 'all' : 'none',
+          transition: 'opacity 0.3s ease',
+        }}
+      />
+
+      {/* Drawer */}
+      <div
+        role="dialog"
+        aria-label="Shopping cart"
+        style={{
+          position: 'fixed', top: 0, right: isOpen ? '0' : '-500px',
+          width: '470px', maxWidth: '100vw', height: '100vh',
+          background: '#131009', zIndex: 401,
+          transition: 'right 0.38s cubic-bezier(0.4,0,0.2,1)',
+          borderLeft: '0.5px solid rgba(201,145,58,0.18)',
+          display: 'flex', flexDirection: 'column',
+        }}
+      >
+        {/* Header */}
+        <div style={{
+          padding: '1.4rem 1.6rem', borderBottom: '0.5px solid rgba(201,145,58,0.18)',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0,
+        }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
+            <span style={{ fontFamily: 'Oswald, sans-serif', fontSize: '24px', fontWeight: 400, color: '#F0E6CC' }}>Your Order</span>
+            <span style={{ fontSize: '11px', letterSpacing: '2px', color: 'rgba(240,230,204,0.4)', textTransform: 'uppercase' }}>({getCount()})</span>
+          </div>
+          <button
             onClick={closeCart}
-          />
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ duration: 0.38, ease: [0.4, 0, 0.2, 1] }}
-            className="fixed right-0 top-0 z-[401] flex h-screen w-[470px] max-w-full flex-col border-l border-gold/18 bg-surface"
-            role="dialog"
-            aria-label="Shopping cart"
+            aria-label="Close cart"
+            style={{
+              background: 'transparent', border: '0.5px solid rgba(201,145,58,0.18)',
+              color: 'rgba(240,230,204,0.4)', width: '36px', height: '36px',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+            }}
           >
-            {/* Header */}
-            <div className="flex flex-shrink-0 items-center justify-between border-b border-gold/18 px-6 py-5">
-              <div className="flex items-center gap-2">
-                <ShoppingBag className="h-[18px] w-[18px] text-gold" />
-                <h2 className="font-display text-[20px] text-cream">Cart</h2>
-                <span className="font-sans text-[11px] text-cream/30">({getCount()})</span>
-              </div>
-              <button onClick={closeCart} className="text-cream/40 transition-colors duration-200 hover:text-cream" aria-label="Close cart">
-                <X className="h-5 w-5" />
-              </button>
-            </div>
+            <i className="las la-times" style={{ fontSize: '16px' }} />
+          </button>
+        </div>
 
-            {/* Items */}
-            <div className="flex-1 overflow-y-auto px-6 py-5">
-              {items.length === 0 ? (
-                <div className="flex h-full flex-col items-center justify-center text-center">
-                  <ShoppingBag className="mb-4 h-12 w-12 text-gold/15" />
-                  <p className="mb-2 font-display text-[18px] text-cream/50">Your cart is empty</p>
-                  <p className="mb-6 font-sans text-[13px] text-cream/20">Add some POVU coffee to get started</p>
-                  <Button variant="secondary" size="sm" onClick={closeCart}>Continue Shopping</Button>
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  {items.map((item) => (
-                    <div key={item.id} className="flex gap-4 border-b border-gold/8 pb-4">
-                      <div className="flex h-16 w-12 flex-shrink-0 items-center justify-center bg-card">
-                        <svg viewBox="0 0 40 60" className="h-12 w-8">
-                          <rect x="2" y="0" width="36" height="55" rx="2" fill="#1C1510" stroke="#C9913A" strokeWidth="0.5" opacity="0.6" />
-                          <text x="20" y="25" textAnchor="middle" fill="#C9913A" fontSize="6" fontFamily="serif">P</text>
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-sans text-[13px] text-cream">{item.name}</h4>
-                        <p className="font-sans text-[11px] text-gold/50">
-                          {formatPrice(currency === 'UGX' ? item.priceUGX : item.priceUSD, currency)}
-                        </p>
-                        <div className="mt-2 flex items-center gap-2">
-                          <button
-                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="flex h-6 w-6 items-center justify-center border border-gold/18 text-cream/50 transition-colors duration-200 hover:border-gold/40"
-                            aria-label="Decrease quantity"
-                          >
-                            <Minus className="h-3 w-3" />
-                          </button>
-                          <span className="w-8 text-center font-sans text-[13px] text-cream">{item.quantity}</span>
-                          <button
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="flex h-6 w-6 items-center justify-center border border-gold/18 text-cream/50 transition-colors duration-200 hover:border-gold/40"
-                            aria-label="Increase quantity"
-                          >
-                            <Plus className="h-3 w-3" />
-                          </button>
-                        </div>
-                      </div>
-                      <div className="flex flex-col items-end justify-between">
-                        <button onClick={() => removeItem(item.id)} className="text-cream/20 transition-colors duration-200 hover:text-red-400" aria-label="Remove item">
-                          <Trash2 className="h-4 w-4" />
-                        </button>
-                        <span className="font-sans text-[13px] text-cream">
-                          {formatPrice((currency === 'UGX' ? item.priceUGX : item.priceUSD) * item.quantity, currency)}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+        {/* Items */}
+        <div style={{ flex: 1, overflowY: 'auto', padding: 0 }}>
+          {items.length === 0 ? (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', gap: '1.2rem', padding: '3rem 2rem', textAlign: 'center' }}>
+              <i className="las la-shopping-bag" style={{ fontSize: '48px', color: 'rgba(201,145,58,0.15)' }} />
+              <p style={{ fontFamily: 'Oswald, sans-serif', fontSize: '22px', fontStyle: 'italic', color: 'rgba(240,230,204,0.4)' }}>Your cart is empty</p>
+              <p style={{ fontSize: '12px', color: 'rgba(240,230,204,0.2)', lineHeight: '1.7', maxWidth: '240px' }}>Add a product to begin your POVU order. Every batch ships with an origin certificate.</p>
+              <button onClick={closeCart} className="kf-btn dark-btn"><span>Continue Shopping</span></button>
             </div>
-
-            {/* Footer */}
-            {items.length > 0 && (
-              <div className="flex-shrink-0 border-t border-gold/18 px-6 py-5">
-                {/* Shipping progress */}
-                <div className="mb-3">
-                  <p className="mb-1 font-sans text-[11px] text-cream/30">
-                    {isEligibleFreeShipping()
-                      ? 'Free shipping unlocked!'
-                      : `UGX ${(100000 - getSubtotal()).toLocaleString()} away from free shipping`}
+          ) : (
+            items.map((item) => (
+              <div key={item.id} style={{
+                padding: '1.2rem 1.6rem', borderBottom: '0.5px solid rgba(201,145,58,0.18)',
+                display: 'grid', gridTemplateColumns: '1fr auto', gap: '1rem', alignItems: 'start',
+              }}>
+                <div>
+                  <p style={{ fontSize: '13px', fontWeight: 500, color: '#F0E6CC', marginBottom: '2px' }}>{item.name}</p>
+                  <p style={{ fontSize: '11px', color: 'rgba(240,230,204,0.4)', marginBottom: '0.75rem' }}>
+                    {formatPrice(currency === 'UGX' ? item.priceUGX : item.priceUSD, currency)} each
                   </p>
-                  <div className="h-[2px] w-full bg-card">
-                    <div className="h-[2px] bg-gold transition-all duration-500" style={{ width: `${shippingProgress()}%` }} />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
+                    <button
+                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      style={{ background: 'transparent', border: '0.5px solid rgba(201,145,58,0.18)', color: 'rgba(240,230,204,0.4)', width: '26px', height: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', cursor: 'pointer' }}
+                      aria-label="Decrease quantity"
+                    >−</button>
+                    <span style={{ width: '34px', textAlign: 'center', fontSize: '12px', color: '#F0E6CC', borderTop: '0.5px solid rgba(201,145,58,0.18)', borderBottom: '0.5px solid rgba(201,145,58,0.18)', height: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{item.quantity}</span>
+                    <button
+                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                      style={{ background: 'transparent', border: '0.5px solid rgba(201,145,58,0.18)', color: 'rgba(240,230,204,0.4)', width: '26px', height: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', cursor: 'pointer' }}
+                      aria-label="Increase quantity"
+                    >+</button>
                   </div>
+                  <button
+                    onClick={() => removeItem(item.id)}
+                    style={{ background: 'transparent', border: 'none', color: 'rgba(240,230,204,0.2)', fontSize: '10px', letterSpacing: '1px', textTransform: 'uppercase', padding: '4px 0', cursor: 'pointer', display: 'block', marginTop: '0.5rem' }}
+                  >Remove</button>
                 </div>
-                <div className="mb-4 flex justify-between">
-                  <span className="font-sans text-[13px] text-cream/50">Subtotal</span>
-                  <span className="font-display text-[20px] text-gold-light">{formatPrice(subtotal, currency)}</span>
-                </div>
-                <Link href="/checkout" onClick={closeCart}>
-                  <button className="mb-2 flex w-full items-center justify-center bg-gold py-3.5 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-espresso transition-colors duration-200 hover:bg-gold-light">
-                    Checkout <ArrowRight className="ml-2 h-3.5 w-3.5" />
-                  </button>
-                </Link>
-                <button onClick={closeCart} className="w-full py-2 text-center font-sans text-[11px] text-cream/30 transition-colors duration-200 hover:text-cream">
-                  Continue Shopping
-                </button>
+                <span style={{ fontFamily: 'Oswald, sans-serif', fontSize: '19px', color: '#DFB468', whiteSpace: 'nowrap' }}>
+                  {formatPrice((currency === 'UGX' ? item.priceUGX : item.priceUSD) * item.quantity, currency)}
+                </span>
               </div>
-            )}
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+            ))
+          )}
+        </div>
+
+        {/* Footer */}
+        {items.length > 0 && (
+          <div style={{ padding: '1.4rem 1.6rem', borderTop: '0.5px solid rgba(201,145,58,0.18)', flexShrink: 0 }}>
+            <p style={{ fontSize: '11px', color: 'rgba(240,230,204,0.4)', marginBottom: '0.5rem' }}>
+              {isEligibleFreeShipping() ? 'Free delivery within Kampala' : `UGX ${(100000 - getSubtotal()).toLocaleString()} away from free shipping`}
+            </p>
+            <div style={{ height: '3px', background: 'rgba(240,230,204,0.08)', marginBottom: '1rem' }}>
+              <div style={{ height: '3px', background: '#C9913A', transition: 'width 0.4s ease', width: `${shippingProgress()}%`, maxWidth: '100%' }} />
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'rgba(240,230,204,0.4)', marginBottom: '0.6rem' }}>
+              <span>Subtotal</span><span>{formatPrice(subtotal, currency)}</span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '16px', color: '#F0E6CC', fontWeight: 500, paddingTop: '0.75rem', borderTop: '0.5px solid rgba(201,145,58,0.18)', marginTop: '0.4rem' }}>
+              <span>Total</span>
+              <span style={{ fontFamily: 'Oswald, sans-serif', fontSize: '24px', color: '#DFB468' }}>{formatPrice(subtotal, currency)}</span>
+            </div>
+            <Link href="/checkout" onClick={closeCart}>
+              <button style={{
+                width: '100%', background: '#C9913A', color: '#0C0906', border: 'none',
+                padding: '14px', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase',
+                fontWeight: 500, cursor: 'pointer', marginTop: '1rem', marginBottom: '0.5rem',
+                fontFamily: 'Roboto, sans-serif', transition: 'background 0.25s',
+              }}>
+                Proceed to Checkout
+              </button>
+            </Link>
+            <button
+              onClick={closeCart}
+              style={{
+                width: '100%', background: 'transparent', color: 'rgba(240,230,204,0.4)',
+                border: '0.5px solid rgba(201,145,58,0.18)', padding: '11px',
+                fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase', cursor: 'pointer',
+                fontFamily: 'Roboto, sans-serif', transition: 'all 0.2s',
+              }}
+            >
+              Continue Shopping
+            </button>
+            <p style={{ fontSize: '10px', color: 'rgba(240,230,204,0.2)', textAlign: 'center', marginTop: '0.75rem', lineHeight: '1.65' }}>
+              Origin certificate with every order
+            </p>
+          </div>
+        )}
+      </div>
+    </>
   );
 }

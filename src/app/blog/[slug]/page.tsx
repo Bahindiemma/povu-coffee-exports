@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Image from "next/image";
 import Link from 'next/link';
 import { blogPosts } from '@/lib/data/content';
 
@@ -104,7 +105,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <div className="kf-blog-grid-item element-anim-1 scroll-animate" data-animate="active">
                   <div className="image kf-image-hover">
                     <Link href={`/blog/${p.slug}`}>
-                      <img src={['https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600&q=80','https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600&q=80'][index]} alt={p.title} />
+                      <Image src={['https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600&q=80','https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600&q=80'][index]} alt={p.title} width={600} height={400} className="w-full h-auto" />
                     </Link>
                   </div>
                   <div className="desc">

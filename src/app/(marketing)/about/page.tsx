@@ -1,4 +1,5 @@
 'use client';
+import Image from "next/image";
 
 import TestimonialsCarousel from '@/components/kaffe/TestimonialsCarousel';
 import Link from 'next/link';
@@ -52,7 +53,7 @@ export default function AboutPage() {
                 <ul>
                   <li className="element-anim-1 scroll-animate" data-animate="active">
                     <div className="icon">
-                      <img src="/images/choose_icon1.png" alt="Genetics" />
+                      <Image src="/images/choose_icon1.png" alt="Wild-Type Genetics" width={48} height={48} />
                     </div>
                     <div className="desc">
                       <h5 className="name">Wild-Type Genetics</h5>
@@ -64,7 +65,7 @@ export default function AboutPage() {
                   </li>
                   <li className="element-anim-1 scroll-animate" data-animate="active">
                     <div className="icon">
-                      <img src="/images/choose_icon2.png" alt="Traceability" />
+                      <Image src="/images/choose_icon2.png" alt="Digital Traceability" width={48} height={48} />
                     </div>
                     <div className="desc">
                       <h5 className="name">Digital Traceability</h5>
@@ -83,7 +84,7 @@ export default function AboutPage() {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 offset-lg-1">
               <div className="kf-choose-image element-anim-1 scroll-animate" data-animate="active">
-                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80" alt="POVU Coffee" />
+                <Image src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80" alt="POVU Coffee" width={800} height={600} className="w-full h-auto" />
               </div>
             </div>
           </div>

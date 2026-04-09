@@ -1,13 +1,16 @@
 'use client';
+import Image from "next/image";
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { stickyNav } from '@/kaffe/utils';
 import { useCartStore } from '@/lib/store/cart';
+import { useCurrencyStore } from '@/lib/store/currency';
 
 export default function Header() {
   const openCart = useCartStore((s) => s.openCart);
   const getCount = useCartStore((s) => s.getCount);
+  const { currency, toggleCurrency } = useCurrencyStore();
 
   useEffect(() => {
     stickyNav();
@@ -69,7 +72,7 @@ export default function Header() {
           <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <div className="kf-logo">
               <Link href="/">
-                <img src="/images/povu-logo.png" alt="POVU Coffee Exports" />
+                <Image src="/images/povu-logo.png" alt="POVU Coffee Exports" width={160} height={55} style={{ maxHeight: "55px", width: "auto" }} />
               </Link>
             </div>
           </div>
@@ -123,6 +126,24 @@ export default function Header() {
             >
               <span />
             </a>
+            <button
+              onClick={toggleCurrency}
+              style={{
+                background: 'transparent',
+                border: '1px solid rgba(201,145,58,0.3)',
+                color: 'rgba(240,230,204,0.5)',
+                padding: '7px 12px',
+                fontSize: '10px',
+                letterSpacing: '1px',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+                fontFamily: 'Roboto, sans-serif',
+                marginRight: '8px',
+              }}
+              aria-label="Toggle currency"
+            >
+              {currency}
+            </button>
             <button
               onClick={openCart}
               className="kf-btn h-btn"
