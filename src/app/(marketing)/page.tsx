@@ -2,12 +2,13 @@
 import Image from "next/image";
 
 import MainSlider from '@/components/kaffe/MainSlider';
-import TestimonialsCarousel from '@/components/kaffe/TestimonialsCarousel';
+import ProductFeatureCards from '@/components/sections/ProductFeatureCards';
+import TestimonialsFeature from '@/components/sections/TestimonialsFeature';
+import StatsBand from '@/components/sections/StatsBand';
 import { sliderProps } from '@/kaffe/sliderProps';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { singleProducts } from '@/lib/data/products';
-import { blogPosts, stats } from '@/lib/data/content';
+import { blogPosts } from '@/lib/data/content';
 
 export default function HomePage() {
   return (
@@ -78,7 +79,7 @@ export default function HomePage() {
               <div className="kf-services-item element-anim-1 scroll-animate" data-animate="active">
                 <div className="image kf-image-hover">
                   <Link href="/product/premium-ground-coffee">
-                    <Image src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=600&q=80" alt="Ground Coffee" width={600} height={400} className="w-full h-auto" />
+                    <Image src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=600&q=80" alt="Ground Coffee" width={600} height={400} className="w-full h-auto" />
                   </Link>
                 </div>
                 <div className="desc">
@@ -108,52 +109,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section Menu - Our Products */}
-      <section
-        className="section kf-menu kf-parallax"
-        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1920&q=80)' }}
-      >
-        <div className="container">
-          <div className="kf-titles align-center">
-            <div className="kf-subtitle element-anim-1 scroll-animate" data-animate="active">
-              Kyegegwa Wild-Type Robusta
-            </div>
-            <h3 className="kf-title element-anim-1 scroll-animate" data-animate="active">
-              POVU Coffee Products
-            </h3>
-          </div>
-          <div className="kf-menu-items" style={{ backgroundImage: 'url(/assets/images/menu_logo.png)' }}>
-            <div className="row">
-              {singleProducts.map((product) =>
-                product.variants.map((variant) => (
-                  <div key={variant.id} className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    <div className="kf-menu-item element-anim-1 scroll-animate" data-animate="active">
-                      <div className="image kf-image-hover">
-                        <Link href={`/product/${product.slug}`}>
-                          <Image src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&q=80" alt={product.name} width={400} height={300} className="w-full h-auto" />
-                        </Link>
-                      </div>
-                      <div className="desc">
-                        <h5 className="name">{product.name} — {variant.size}</h5>
-                        <div className="subname">{product.description.slice(0, 60)}...</div>
-                        <div className="price">
-                          UGX {variant.priceUGX.toLocaleString()} / ${variant.priceUSD}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-          <div className="align-center" style={{ marginTop: '30px' }}>
-            <Link href="/shop" className="kf-btn element-anim-1 scroll-animate" data-animate="active">
-              <span>View All Products</span>
-              <i className="fas fa-chevron-right" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Section Products */}
+      <ProductFeatureCards />
 
       {/* Section Why Choose POVU */}
       <section className="section kf-choose section-bg">
@@ -227,7 +184,7 @@ export default function HomePage() {
               { img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80', name: 'Espresso Crema' },
               { img: 'https://images.unsplash.com/photo-1524350876685-274059332603?w=600&q=80', name: 'Kyegegwa Farm' },
               { img: 'https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600&q=80', name: 'Processing' },
-              { img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=600&q=80', name: 'Ground Coffee' },
+              { img: 'https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=600&q=80', name: 'Ground Coffee' },
               { img: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600&q=80', name: 'Farmer Profiles' },
               { img: 'https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&q=80', name: 'Export Ready' },
             ].map((item, index) => (
@@ -249,31 +206,10 @@ export default function HomePage() {
       </section>
 
       {/* Section Testimonials */}
-      <TestimonialsCarousel />
+      <TestimonialsFeature />
 
       {/* Section Numbers / Stats */}
-      <section className="section kf-numbers">
-        <div className="container">
-          <div className="kf-numbers-items row">
-            {stats.map((stat, index) => (
-              <div key={index} className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                <div className="kf-numbers-item">
-                  <div className="num">{stat.value}</div>
-                  <div className="desc">
-                    <h5 className="name">{stat.label}</h5>
-                    <div className="subname">
-                      {index === 0 && 'Kyegegwa & Mubende'}
-                      {index === 1 && 'Ready for international shipment'}
-                      {index === 2 && 'Farmers paid above commodity rate'}
-                      {index === 3 && 'Entebbe Airport & Mombasa Port'}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatsBand />
 
       {/* Section Latest Blog */}
       <section className="section kf-latest-blog section-bg">
