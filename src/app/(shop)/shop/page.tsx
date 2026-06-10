@@ -5,8 +5,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { singleProducts, bundles, subscriptions } from '@/lib/data/products';
 import { useCartStore } from '@/lib/store/cart';
-import { useCurrencyStore } from '@/lib/store/currency';
-import { formatPrice } from '@/lib/utils/currency';
+import { useMoney } from '@/lib/currency/CurrencyProvider';
 import { CartItem } from '@/types';
 import toast from 'react-hot-toast';
 
@@ -15,7 +14,7 @@ type Tab = 'singles' | 'bundles' | 'subscriptions';
 export default function ShopPage() {
   const [activeTab, setActiveTab] = useState<Tab>('singles');
   const addItem = useCartStore((s) => s.addItem);
-  const currency = useCurrencyStore((s) => s.currency);
+  const { format } = useMoney();
 
   const tabs: { key: Tab; label: string; count: number }[] = [
     { key: 'singles', label: 'Single Packs', count: singleProducts.length },
@@ -103,7 +102,7 @@ export default function ShopPage() {
                           <h5 className="name">{product.name} — {variant.size}</h5>
                           <div className="subname">{product.badge} | {product.includes}</div>
                           <div className="price">
-                            {formatPrice(currency === 'UGX' ? variant.priceUGX : variant.priceUSD, currency)}
+                            {format(variant.priceUSD, variant.priceUGX)}
                           </div>
                         </div>
                       </div>
@@ -133,11 +132,11 @@ export default function ShopPage() {
                       <h5 className="name" style={{ marginTop: '10px' }}>{bundle.name}</h5>
                       <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', margin: '10px 0', lineHeight: '1.6' }}>{bundle.contents}</p>
                       <div style={{ fontSize: '24px', color: '#fff', fontFamily: 'Oswald, sans-serif', margin: '15px 0' }}>
-                        {formatPrice(currency === 'UGX' ? bundle.priceUGX : bundle.priceUSD, currency)}
+                        {format(bundle.priceUSD, bundle.priceUGX)}
                       </div>
                       {bundle.savingUGX > 0 && (
                         <p style={{ color: '#3D9E6A', fontSize: '12px', marginBottom: '10px' }}>
-                          Save UGX {bundle.savingUGX.toLocaleString()}
+                          Save {format(Math.round(bundle.savingUGX * bundle.priceUSD / bundle.priceUGX), bundle.savingUGX)}
                         </p>
                       )}
                       <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '11px', marginBottom: '20px' }}>
@@ -178,7 +177,7 @@ export default function ShopPage() {
                       <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', margin: '10px 0', lineHeight: '1.6' }}>{sub.delivery}</p>
                       {!sub.isCustom ? (
                         <div style={{ fontSize: '24px', color: '#fff', fontFamily: 'Oswald, sans-serif', margin: '15px 0' }}>
-                          UGX {sub.priceUGX.toLocaleString()}<span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>/month</span>
+                          {format(sub.priceUSD, sub.priceUGX)}<span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>/month</span>
                         </div>
                       ) : (
                         <div style={{ fontSize: '18px', color: '#C9913A', fontFamily: 'Oswald, sans-serif', margin: '15px 0' }}>

@@ -100,6 +100,7 @@ export const subscriptions: Subscription[] = [
     delivery: '500g Roasted Beans monthly',
     promise: 'Your morning, guaranteed — every month.',
     priceUGX: 45000,
+    priceUSD: 13,
     annualUGX: 540000,
   },
   {
@@ -110,6 +111,7 @@ export const subscriptions: Subscription[] = [
     delivery: '1kg Beans + 250g Ground monthly',
     promise: 'More POVU. Every month. Always fresh.',
     priceUGX: 90000,
+    priceUSD: 25,
     annualUGX: 1080000,
   },
   {
@@ -120,6 +122,7 @@ export const subscriptions: Subscription[] = [
     delivery: '1kg Beans + 500g Ground + Monthly Origin Report',
     promise: 'Be the first to know every harvest.',
     priceUGX: 130000,
+    priceUSD: 36,
     annualUGX: 1560000,
   },
   {
@@ -130,6 +133,7 @@ export const subscriptions: Subscription[] = [
     delivery: 'Custom lot + traceability docs + cupping notes',
     promise: 'Your roastery powered by a guaranteed Kyegegwa supply.',
     priceUGX: 0,
+    priceUSD: 0,
     annualUGX: 0,
     isCustom: true,
   },

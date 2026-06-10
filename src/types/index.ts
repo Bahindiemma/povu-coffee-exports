@@ -42,6 +42,7 @@ export interface Subscription {
   delivery: string;
   promise: string;
   priceUGX: number;
+  priceUSD: number;
   annualUGX: number;
   isCustom?: boolean;
 }

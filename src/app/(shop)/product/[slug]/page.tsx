@@ -6,8 +6,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { singleProducts } from '@/lib/data/products';
 import { useCartStore } from '@/lib/store/cart';
-import { useCurrencyStore } from '@/lib/store/currency';
-import { formatPrice } from '@/lib/utils/currency';
+import { useMoney } from '@/lib/currency/CurrencyProvider';
 import { CartItem } from '@/types';
 import toast from 'react-hot-toast';
 
@@ -19,7 +18,7 @@ export default function ProductDetailPage() {
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const addItem = useCartStore((s) => s.addItem);
-  const currency = useCurrencyStore((s) => s.currency);
+  const { format } = useMoney();
 
   if (!product) {
     return (
@@ -40,7 +39,6 @@ export default function ProductDetailPage() {
   }
 
   const variant = product.variants[selectedVariant];
-  const price = currency === 'UGX' ? variant.priceUGX : variant.priceUSD;
 
   const handleAddToCart = () => {
     const item: CartItem = {
@@ -157,7 +155,7 @@ export default function ProductDetailPage() {
               {/* Price */}
               <div style={{ margin: '20px 0', display: 'flex', alignItems: 'baseline', gap: '15px' }}>
                 <span style={{ fontSize: '32px', color: '#C9913A', fontFamily: 'Oswald, sans-serif' }}>
-                  {formatPrice(price, currency)}
+                  {format(variant.priceUSD, variant.priceUGX)}
                 </span>
                 {product.sca_score && (
                   <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>SCA {product.sca_score}</span>
@@ -172,7 +170,7 @@ export default function ProductDetailPage() {
                   <button onClick={() => setQuantity(quantity + 1)} style={{ padding: '10px 15px', color: 'rgba(255,255,255,0.5)', background: 'transparent', border: 'none', cursor: 'pointer', fontSize: '16px' }}>+</button>
                 </div>
                 <button onClick={handleAddToCart} className="kf-btn">
-                  <span>Add to Cart — {formatPrice(price * quantity, currency)}</span>
+                  <span>Add to Cart — {format(variant.priceUSD * quantity, variant.priceUGX * quantity)}</span>
                   <i className="fas fa-shopping-bag" style={{ marginLeft: '8px' }} />
                 </button>
               </div>
@@ -202,13 +200,13 @@ export default function ProductDetailPage() {
                     <div className="kf-menu-item element-anim-1 scroll-animate" data-animate="active">
                       <div className="image kf-image-hover">
                         <Link href={`/product/${otherProduct.slug}`}>
-                          <Image src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=400&q=80" alt={otherProduct.name} width={400} height={300} className="w-full h-auto" />
+                          <Image src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=400&q=80" alt={otherProduct.name} width={400} height={300} className="w-full h-auto" />
                         </Link>
                       </div>
                       <div className="desc">
                         <h5 className="name">{otherProduct.name} — {v.size}</h5>
                         <div className="subname">{otherProduct.badge}</div>
-                        <div className="price">{formatPrice(currency === 'UGX' ? v.priceUGX : v.priceUSD, currency)}</div>
+                        <div className="price">{format(v.priceUSD, v.priceUGX)}</div>
                       </div>
                     </div>
                   </div>

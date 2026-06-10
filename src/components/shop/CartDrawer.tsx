@@ -2,13 +2,12 @@
 
 import { useEffect } from 'react';
 import { useCartStore } from '@/lib/store/cart';
-import { useCurrencyStore } from '@/lib/store/currency';
-import { formatPrice } from '@/lib/utils/currency';
+import { useMoney } from '@/lib/currency/CurrencyProvider';
 import Link from 'next/link';
 
 export default function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, getSubtotal, getSubtotalUSD, getCount, isEligibleFreeShipping, shippingProgress } = useCartStore();
-  const currency = useCurrencyStore((s) => s.currency);
+  const { format } = useMoney();
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -23,8 +22,6 @@ export default function CartDrawer() {
       document.body.style.overflow = '';
     };
   }, [isOpen, closeCart]);
-
-  const subtotal = currency === 'UGX' ? getSubtotal() : getSubtotalUSD();
 
   return (
     <>
@@ -91,7 +88,7 @@ export default function CartDrawer() {
                 <div>
                   <p style={{ fontSize: '13px', fontWeight: 500, color: '#F0E6CC', marginBottom: '2px' }}>{item.name}</p>
                   <p style={{ fontSize: '11px', color: 'rgba(240,230,204,0.4)', marginBottom: '0.75rem' }}>
-                    {formatPrice(currency === 'UGX' ? item.priceUGX : item.priceUSD, currency)} each
+                    {format(item.priceUSD, item.priceUGX)} each
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
                     <button
@@ -112,7 +109,7 @@ export default function CartDrawer() {
                   >Remove</button>
                 </div>
                 <span style={{ fontFamily: 'Oswald, sans-serif', fontSize: '19px', color: '#DFB468', whiteSpace: 'nowrap' }}>
-                  {formatPrice((currency === 'UGX' ? item.priceUGX : item.priceUSD) * item.quantity, currency)}
+                  {format(item.priceUSD * item.quantity, item.priceUGX * item.quantity)}
                 </span>
               </div>
             ))
@@ -123,17 +120,19 @@ export default function CartDrawer() {
         {items.length > 0 && (
           <div style={{ padding: '1.4rem 1.6rem', borderTop: '0.5px solid rgba(201,145,58,0.18)', flexShrink: 0 }}>
             <p style={{ fontSize: '11px', color: 'rgba(240,230,204,0.4)', marginBottom: '0.5rem' }}>
-              {isEligibleFreeShipping() ? 'Free delivery within Kampala' : `UGX ${(100000 - getSubtotal()).toLocaleString()} away from free shipping`}
+              {isEligibleFreeShipping()
+                ? 'Free delivery within Kampala'
+                : `${format(Math.max(0, 28 - getSubtotalUSD()), Math.max(0, 100000 - getSubtotal()))} away from free shipping`}
             </p>
             <div style={{ height: '3px', background: 'rgba(240,230,204,0.08)', marginBottom: '1rem' }}>
               <div style={{ height: '3px', background: '#C9913A', transition: 'width 0.4s ease', width: `${shippingProgress()}%`, maxWidth: '100%' }} />
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'rgba(240,230,204,0.4)', marginBottom: '0.6rem' }}>
-              <span>Subtotal</span><span>{formatPrice(subtotal, currency)}</span>
+              <span>Subtotal</span><span>{format(getSubtotalUSD(), getSubtotal())}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '16px', color: '#F0E6CC', fontWeight: 500, paddingTop: '0.75rem', borderTop: '0.5px solid rgba(201,145,58,0.18)', marginTop: '0.4rem' }}>
               <span>Total</span>
-              <span style={{ fontFamily: 'Oswald, sans-serif', fontSize: '24px', color: '#DFB468' }}>{formatPrice(subtotal, currency)}</span>
+              <span style={{ fontFamily: 'Oswald, sans-serif', fontSize: '24px', color: '#DFB468' }}>{format(getSubtotalUSD(), getSubtotal())}</span>
             </div>
             <Link href="/checkout" onClick={closeCart}>
               <button style={{

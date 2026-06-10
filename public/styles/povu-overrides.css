@@ -102,12 +102,15 @@ a:hover,
   border-bottom-color: rgba(201, 145, 58, 0.12);
 }
 
-/* Scroll animate visibility */
+/* Scroll-reveal elements: the template kept these at opacity:0 / translateY
+   until a scroll script imperatively added a class + inline style. That hid
+   content before JS ran (bad for SSR) and mutated React-owned nodes (hydration
+   mismatch). Reveal them purely in CSS instead. The hero slider is unaffected:
+   it uses .swiper-slide-active to animate, not .scroll-animate. */
 .scroll-animate {
-  visibility: hidden;
-}
-.scroll-animate.animate__active {
-  visibility: visible;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
 }
 
 /* Logo styling */
@@ -153,4 +156,326 @@ a:hover,
 /* Parallax overlay */
 .kf-parallax::before {
   background: rgba(12, 9, 6, 0.75);
+}
+
+/* ══ UI polish ══ */
+
+/* Footer nav lists (Quick Links, Company): the vendor theme hid the bullet on
+   the last item (a leftover from its "opening hours" note). POVU reuses these
+   lists for real links, so the last link lost its dot and sat misaligned.
+   Restore the bullet and tint all footer bullets to brand gold (were white). */
+.kf-f-hours ul li:last-child:before {
+  display: block;
+}
+.kf-f-hours ul li:before {
+  background: rgba(201, 145, 58, 0.65);
+}
+
+/* Product price: the price text is brand gold, but its dashed leader line was
+   still the template's bronze. Match it to the price for a clean pairing. */
+.kf-menu-item .price:before {
+  border-color: rgba(201, 145, 58, 0.5);
+}
+
+/* Header actions: the fixed 25%-wide right column was too narrow to hold the
+   currency toggle, Cart and Shop Now, so Shop Now dropped to a second line.
+   Let that column size to its content and give the slack to the menu column,
+   so all three controls sit on one row at every desktop width. */
+.kf-navbar .row > [class*="col-"]:nth-child(2) {
+  flex: 1 1 auto;
+  width: auto;
+  max-width: none;
+}
+.kf-navbar .row > [class*="col-"]:last-child {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+}
+.kf-navbar .h-btn {
+  padding: 0 18px;
+}
+
+/* Image fill: every framed image in this template is positioned to crop-fill
+   a fixed-height box (object-fit: cover), but the JSX adds Tailwind's h-auto,
+   which overrides the height and makes each image render at its own aspect
+   ratio. That left gaps and gave different images different heights within the
+   same row. Re-assert the fill on every framed image so heights are uniform
+   per section. (Natural full-bleed images like .kf-about-image are NOT in this
+   list, so they keep their aspect ratio.) */
+.kf-services-item .image img,
+.kf-services-item-2 .image img,
+.kf-menu-item .image img,
+.kf-menu-item-2 .image img,
+.kf-choose-image img,
+.kf-grid-carousel .slide-item .image img,
+.kf-insta-carousel .slide-item .image img,
+.kf-blog-grid-item .image img,
+.kf-team-item .image img,
+.kf-history-item .image img,
+.kf-gallery-item .image img,
+.kf-archive-item .image img,
+.kf-category-item .image img,
+.kf-video-item img,
+.kf-f-gallery ul li img {
+  height: 100% !important;
+  object-fit: cover;
+}
+.kf-menu-item .image {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+/* Service cards: the dark overlay sat at 0.85 and all but hid the photography.
+   Ease it back so the imagery reads while the icon and label stay legible. */
+.kf-services-item .image:before {
+  opacity: 0.6;
+}
+.kf-services-item:hover .image:before {
+  opacity: 0.45;
+}
+
+/* Card grids (shop bundles + subscriptions, story timeline, about/origin/export
+   feature cards - all .kf-services-item-2): content of differing length gave
+   cards in the same row different heights. Stretch each card to fill its column
+   so every card in a row is the same height, and pin any CTA to the bottom. */
+.kf-services-item-2 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.kf-services-item-2 .desc {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+.kf-services-item-2 .desc .kf-btn {
+  margin-top: auto;
+}
+
+/* Gallery carousel: the template offset every other slide by 50px, so the
+   cards sat at different heights down the row. Flatten it to a clean, aligned
+   strip of equal cards now that the images fill uniformly. */
+.section.kf-grid-carousel .swiper-slide:nth-child(even) .slide-item {
+  margin-top: 0 !important;
+}
+
+/* Testimonial cards: quotes differ in length, so the cards in a row ended up
+   different heights. Stretch every card in the row to match the tallest. */
+.kf-testimonials-2 .swiper-wrapper {
+  align-items: stretch;
+}
+.kf-testimonials-2 .swiper-slide {
+  height: auto;
+}
+.kf-testimonials-2 .slide-item {
+  height: 100%;
+}
+
+/* New React UI buttons: the template applies a global button{} style (bronze
+   fill, white text, fixed 50px height, 32px padding) to EVERY <button>. Because
+   that rule is unlayered it beats Tailwind utility classes (which sit in a
+   cascade layer), so our custom buttons came out as bronze pills. We style them
+   explicitly here (unlayered, loaded last) so they win cleanly. */
+/* The template adds a white skewed "shine" via button:before (clipped by its
+   overflow:hidden). Our custom buttons don't want it - kill it outright. */
+.povu-pill::before,
+.povu-cta::before,
+.povu-join::before,
+.povu-avatar::before {
+  display: none !important;
+  content: none !important;
+}
+
+.povu-pill {
+  background: transparent;
+  border: 1px solid rgba(201, 145, 58, 0.22);
+  color: rgba(240, 230, 204, 0.55);
+  height: auto;
+  padding: 11px 8px;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  overflow: visible;
+  box-shadow: none;
+  transition: all 0.2s ease;
+}
+.povu-pill:hover {
+  border-color: rgba(201, 145, 58, 0.55);
+  color: #f0e6cc;
+}
+.povu-pill.is-active {
+  background: #c9913a;
+  border-color: #c9913a;
+  color: #0c0906;
+}
+
+.povu-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #c9913a;
+  color: #0c0906;
+  height: auto;
+  padding: 12px 20px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+  overflow: visible;
+  box-shadow: none;
+  transition: background 0.2s ease;
+}
+.povu-cta:hover {
+  background: #dfb468;
+}
+.povu-cta:disabled {
+  opacity: 0.5;
+}
+
+/* Footer email "Join" button */
+.povu-join {
+  background: #c9913a;
+  color: #0c0906;
+  height: auto;
+  padding: 0 16px;
+  border-radius: 0;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  overflow: visible;
+  box-shadow: none;
+  transition: background 0.2s ease;
+}
+.povu-join:hover {
+  background: #dfb468;
+}
+.povu-join:disabled {
+  opacity: 0.5;
+}
+
+/* Testimonial author-rail avatar buttons: strip the template button chrome so
+   they stay clean circular image swatches. */
+.povu-avatar {
+  background: none;
+  height: 52px;
+  width: 52px;
+  padding: 0;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  overflow: hidden;
+  box-shadow: none;
+  letter-spacing: normal;
+  text-transform: none;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.povu-avatar:hover {
+  opacity: 0.8;
+}
+.povu-avatar.is-active {
+  border-color: #c9913a;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ══ Scroll-assembling product grid (ported from Jhey's pen via Motion) ══
+   A hero image starts full-bleed and shrinks into a 5x3 subgrid while the
+   surrounding coffee/origin tiles scale + fade in on scroll. */
+.psg-section {
+  position: relative;
+  min-height: 220vh;
+  background: #0C0906;
+}
+.psg-content {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  place-items: center;
+  align-content: center;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+.psg-grid {
+  --offset: 0;
+  --container-width: 1500px;
+  --gap: clamp(8px, 6vw, 60px);
+  width: var(--container-width);
+  max-width: calc(100% - 4rem);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: var(--gap);
+  margin: 0 auto;
+  align-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+@media (max-width: 600px) {
+  .psg-grid {
+    grid-template-columns: repeat(3, 1fr);
+    --offset: -1;
+  }
+  .psg-grid > .psg-layer:nth-of-type(1) {
+    display: none;
+  }
+}
+.psg-grid > .psg-layer {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+.psg-grid > .psg-layer:nth-of-type(1) div:nth-of-type(odd) { grid-column: 1; }
+.psg-grid > .psg-layer:nth-of-type(1) div:nth-of-type(even) { grid-column: -2; }
+.psg-grid > .psg-layer:nth-of-type(2) div:nth-of-type(odd) { grid-column: calc(2 + var(--offset)); }
+.psg-grid > .psg-layer:nth-of-type(2) div:nth-of-type(even) { grid-column: calc(-3 - var(--offset)); }
+.psg-grid > .psg-layer:nth-of-type(3) div:first-of-type { grid-column: calc(3 + var(--offset)); grid-row: 1; }
+.psg-grid > .psg-layer:nth-of-type(3) div:last-of-type { grid-column: calc(3 + var(--offset)); grid-row: -1; }
+.psg-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 0.85rem;
+  display: block;
+}
+.psg-grid .psg-scaler {
+  position: relative;
+  grid-area: 2 / calc(3 + var(--offset));
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+.psg-grid .psg-scaler img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  object-fit: cover;
+  border-radius: 0.85rem;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  /* the global img { max-width:100% } reset would cap the full-bleed scaler to
+     its grid cell, so the shrink animation could not grow past it. */
+  max-width: none !important;
+  max-height: none !important;
+}
+
+/* The template's white "shine" pseudo (button:before) is applied to EVERY
+   <button>, not just .kf-btn, so plain inline-styled buttons (cart drawer,
+   checkout, quantity steppers) showed a stray white diagonal. Kill it on
+   everything except the template's own .kf-* buttons and our .povu-* buttons. */
+button:not([class*="kf-"]):not([class*="povu-"])::before {
+  display: none !important;
+  content: none !important;
 }

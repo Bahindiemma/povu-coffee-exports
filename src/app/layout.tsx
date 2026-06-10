@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import KaffeLayout from '@/components/layout/KaffeLayout';
+import { CurrencyProvider } from '@/lib/currency/CurrencyProvider';
 import CartDrawer from '@/components/shop/CartDrawer';
 import ToastProvider from '@/components/ui/Toast';
 import JsonLd, { organizationSchema, websiteSchema } from '@/components/seo/JsonLd';
@@ -68,14 +69,16 @@ export default function RootLayout({
       <body>
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
-        <KaffeLayout>
-          <main id="main-content">{children}</main>
-        </KaffeLayout>
-        <CartDrawer />
-        <ToastProvider />
-        <WhatsAppButton />
-        <BackToTop />
-        <CookieConsent />
+        <CurrencyProvider>
+          <KaffeLayout>
+            <main id="main-content">{children}</main>
+          </KaffeLayout>
+          <CartDrawer />
+          <ToastProvider />
+          <WhatsAppButton />
+          <BackToTop />
+          <CookieConsent />
+        </CurrencyProvider>
       </body>
     </html>
   );

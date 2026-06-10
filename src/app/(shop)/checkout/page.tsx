@@ -6,8 +6,7 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useCartStore } from '@/lib/store/cart';
-import { useCurrencyStore } from '@/lib/store/currency';
-import { formatPrice } from '@/lib/utils/currency';
+import { useMoney } from '@/lib/currency/CurrencyProvider';
 import { checkoutSchema, CheckoutFormData } from '@/lib/validations/checkout';
 import toast from 'react-hot-toast';
 
@@ -15,8 +14,7 @@ export default function CheckoutPage() {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const { items, getSubtotal, getSubtotalUSD, clearCart, isEligibleFreeShipping } = useCartStore();
-  const currency = useCurrencyStore((s) => s.currency);
-  const subtotal = currency === 'UGX' ? getSubtotal() : getSubtotalUSD();
+  const { format } = useMoney();
 
   const { register, handleSubmit, formState: { errors }, watch } = useForm<CheckoutFormData>({
     resolver: zodResolver(checkoutSchema),
@@ -202,13 +200,13 @@ export default function CheckoutPage() {
                     {items.map((item) => (
                       <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
                         <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>{item.name} &times; {item.quantity}</span>
-                        <span style={{ color: '#fff', fontSize: '13px' }}>{formatPrice((currency === 'UGX' ? item.priceUGX : item.priceUSD) * item.quantity, currency)}</span>
+                        <span style={{ color: '#fff', fontSize: '13px' }}>{format(item.priceUSD * item.quantity, item.priceUGX * item.quantity)}</span>
                       </div>
                     ))}
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
                     <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>Subtotal</span>
-                    <span style={{ color: '#fff', fontSize: '13px' }}>{formatPrice(subtotal, currency)}</span>
+                    <span style={{ color: '#fff', fontSize: '13px' }}>{format(getSubtotalUSD(), getSubtotal())}</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px' }}>
                     <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>Shipping</span>
@@ -216,7 +214,7 @@ export default function CheckoutPage() {
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(185,146,114,0.2)', paddingTop: '15px', marginBottom: '20px' }}>
                     <span style={{ color: '#fff', fontSize: '16px', fontFamily: 'Oswald, sans-serif' }}>Total</span>
-                    <span style={{ color: '#C9913A', fontSize: '26px', fontFamily: 'Oswald, sans-serif' }}>{formatPrice(subtotal, currency)}</span>
+                    <span style={{ color: '#C9913A', fontSize: '26px', fontFamily: 'Oswald, sans-serif' }}>{format(getSubtotalUSD(), getSubtotal())}</span>
                   </div>
                   <button type="submit" className="kf-btn" disabled={submitting} style={{ width: '100%', textAlign: 'center' }}>
                     <span>{submitting ? 'Placing Order...' : 'Place Order'}</span>
