@@ -128,7 +128,7 @@ export default function ProductFeatureCards() {
           className="mb-14 text-center"
         >
           <p className="mb-4 font-sans text-[11px] font-medium uppercase tracking-[0.4em] text-gold">
-            Kyegegwa Wild-Type Robusta
+            Shop the Range
           </p>
           <h2 className="font-display text-[clamp(30px,4vw,46px)] font-bold text-cream">
             POVU Coffee Products

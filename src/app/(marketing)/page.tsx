@@ -2,6 +2,7 @@
 import Image from "next/image";
 
 import MainSlider from '@/components/kaffe/MainSlider';
+import ProductScrollGrid from '@/components/sections/ProductScrollGrid';
 import ProductFeatureCards from '@/components/sections/ProductFeatureCards';
 import TestimonialsFeature from '@/components/sections/TestimonialsFeature';
 import StatsBand from '@/components/sections/StatsBand';
@@ -110,6 +111,7 @@ export default function HomePage() {
       </section>
 
       {/* Section Products */}
+      <ProductScrollGrid />
       <ProductFeatureCards />
 
       {/* Section Why Choose POVU */}
