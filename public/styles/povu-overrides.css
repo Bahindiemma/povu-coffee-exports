@@ -470,3 +470,12 @@ a:hover,
   max-width: none !important;
   max-height: none !important;
 }
+
+/* The template's white "shine" pseudo (button:before) is applied to EVERY
+   <button>, not just .kf-btn, so plain inline-styled buttons (cart drawer,
+   checkout, quantity steppers) showed a stray white diagonal. Kill it on
+   everything except the template's own .kf-* buttons and our .povu-* buttons. */
+button:not([class*="kf-"]):not([class*="povu-"])::before {
+  display: none !important;
+  content: none !important;
+}

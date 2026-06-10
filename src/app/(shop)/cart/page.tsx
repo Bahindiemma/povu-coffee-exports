@@ -2,13 +2,11 @@
 
 import Link from 'next/link';
 import { useCartStore } from '@/lib/store/cart';
-import { useCurrencyStore } from '@/lib/store/currency';
-import { formatPrice } from '@/lib/utils/currency';
+import { useMoney } from '@/lib/currency/CurrencyProvider';
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, getSubtotal, getSubtotalUSD, getCount, isEligibleFreeShipping, shippingProgress } = useCartStore();
-  const currency = useCurrencyStore((s) => s.currency);
-  const subtotal = currency === 'UGX' ? getSubtotal() : getSubtotalUSD();
+  const { format } = useMoney();
 
   if (items.length === 0) {
     return (
@@ -61,7 +59,7 @@ export default function CartPage() {
                     <div style={{ flex: 1 }}>
                       <h5 className="name">{item.name}</h5>
                       <div className="subname">
-                        {formatPrice(currency === 'UGX' ? item.priceUGX : item.priceUSD, currency)} each
+                        {format(item.priceUSD, item.priceUGX)} each
                       </div>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -76,7 +74,7 @@ export default function CartPage() {
                       >+</button>
                     </div>
                     <div className="price" style={{ minWidth: '120px', textAlign: 'right' }}>
-                      {formatPrice((currency === 'UGX' ? item.priceUGX : item.priceUSD) * item.quantity, currency)}
+                      {format(item.priceUSD * item.quantity, item.priceUGX * item.quantity)}
                     </div>
                     <button
                       onClick={() => removeItem(item.id)}
@@ -92,7 +90,7 @@ export default function CartPage() {
               {/* Shipping Progress */}
               <div style={{ margin: '20px 0', padding: '15px 0', borderTop: '1px solid rgba(185,146,114,0.15)' }}>
                 <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px', marginBottom: '8px' }}>
-                  {isEligibleFreeShipping() ? 'Free shipping unlocked!' : `UGX ${(100000 - getSubtotal()).toLocaleString()} away from free shipping`}
+                  {isEligibleFreeShipping() ? 'Free shipping unlocked!' : `${format(Math.max(0, 28 - getSubtotalUSD()), Math.max(0, 100000 - getSubtotal()))} away from free shipping`}
                 </p>
                 <div style={{ height: '2px', width: '100%', background: 'rgba(185,146,114,0.1)' }}>
                   <div style={{ height: '2px', background: '#C9913A', transition: 'width 0.5s ease', width: `${shippingProgress()}%` }} />
@@ -103,7 +101,7 @@ export default function CartPage() {
               <div style={{ borderTop: '1px solid rgba(185,146,114,0.2)', paddingTop: '20px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
                   <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>Subtotal</span>
-                  <span style={{ color: '#fff', fontSize: '14px' }}>{formatPrice(subtotal, currency)}</span>
+                  <span style={{ color: '#fff', fontSize: '14px' }}>{format(getSubtotalUSD(), getSubtotal())}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
                   <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>Shipping</span>
@@ -111,7 +109,7 @@ export default function CartPage() {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(185,146,114,0.2)', paddingTop: '15px', marginTop: '15px' }}>
                   <span style={{ color: '#fff', fontSize: '18px', fontFamily: 'Oswald, sans-serif' }}>Total</span>
-                  <span style={{ color: '#C9913A', fontSize: '28px', fontFamily: 'Oswald, sans-serif' }}>{formatPrice(subtotal, currency)}</span>
+                  <span style={{ color: '#C9913A', fontSize: '28px', fontFamily: 'Oswald, sans-serif' }}>{format(getSubtotalUSD(), getSubtotal())}</span>
                 </div>
               </div>
 
