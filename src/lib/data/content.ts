@@ -126,6 +126,7 @@ export const exportMarkets = [
   { country: 'Germany', focus: 'Specialty roasters, direct trade' },
   { country: 'Netherlands', focus: 'Green bean importers, blenders' },
   { country: 'Scandinavia', focus: 'Nordic roast specialty market' },
-  { country: 'Uganda', focus: 'Domestic premium retail, HoReCa' },
+  { country: 'Italy', focus: 'Espresso blenders' },
+  { country: 'United Arab Emirates', focus: 'Wholesale and re-export hub' },
   { country: 'Kenya', focus: 'Regional specialty, cross-border trade' },
 ];

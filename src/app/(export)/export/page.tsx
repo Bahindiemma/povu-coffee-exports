@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { exportMarkets } from '@/lib/data/content';
+import CoffeeFlowMap from '@/components/sections/CoffeeFlowMap';
 
 export const metadata: Metadata = {
   title: 'Export & Wholesale',
@@ -70,24 +71,32 @@ export default function ExportPage() {
               Target Markets
             </h3>
           </div>
-          <div className="row" style={{ justifyContent: 'center' }}>
-            <div className="col-xs-12 col-sm-12 col-md-8 col-lg-6">
-              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                  <tr style={{ borderBottom: '1px solid rgba(185,146,114,0.3)' }}>
-                    <th style={{ padding: '12px 0', textAlign: 'left', color: '#C9913A', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Country</th>
-                    <th style={{ padding: '12px 0', textAlign: 'left', color: '#C9913A', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Focus</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {exportMarkets.map((m, i) => (
-                    <tr key={i} style={{ borderBottom: '1px solid rgba(185,146,114,0.1)' }}>
-                      <td style={{ padding: '15px 0', color: '#fff', fontSize: '15px' }}>{m.country}</td>
-                      <td style={{ padding: '15px 0', color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>{m.focus}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          {/* Interactive export-flow map (Kyegegwa -> world) */}
+          <CoffeeFlowMap />
+
+          {/* Accessible / crawlable market list under the canvas map */}
+          <div className="row" style={{ justifyContent: 'center', marginTop: '40px' }}>
+            <div className="col-xs-12 col-sm-12 col-md-10 col-lg-9">
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                  gap: '18px',
+                }}
+              >
+                {exportMarkets.map((m, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      borderLeft: '2px solid rgba(201,145,58,0.45)',
+                      paddingLeft: '14px',
+                    }}
+                  >
+                    <div style={{ color: '#F0E6CC', fontSize: '15px', fontFamily: 'Oswald, sans-serif', letterSpacing: '0.02em' }}>{m.country}</div>
+                    <div style={{ color: 'rgba(240,230,204,0.5)', fontSize: '13px', marginTop: '3px' }}>{m.focus}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
