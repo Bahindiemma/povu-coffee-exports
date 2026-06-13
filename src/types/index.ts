@@ -90,5 +90,3 @@ export interface OrderFormData {
   paymentMethod: 'mtn' | 'airtel' | 'bank' | 'paypal';
   notes?: string;
 }
-
-export type Currency = 'UGX' | 'USD';
