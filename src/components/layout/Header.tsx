@@ -38,7 +38,7 @@ export default function Header() {
         <div className="row">
           <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
             <div className="kf-h-group">
-              <i className="far fa-clock" /> <em>Origin :</em> Kyegegwa, Uganda
+              <i className="far fa-clock" /> <em>Origin :</em> Western Uganda
             </div>
           </div>
           <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 align-center">
@@ -216,7 +216,7 @@ export default function Header() {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <div className="kf-h-group">
-                <i className="fas fa-map-marker-alt" /> <em>Origin :</em> Kyegegwa, Uganda
+                <i className="fas fa-map-marker-alt" /> <em>Origin :</em> Western Uganda
               </div>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">

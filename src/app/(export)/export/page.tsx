@@ -36,7 +36,7 @@ export default function ExportPage() {
               B2B & Export
             </div>
             <h3 className="kf-title element-anim-1 scroll-animate" data-animate="active">
-              Source Kyegegwa Robusta at Scale
+              Source Western Uganda Robusta at Scale
             </h3>
           </div>
           <div className="kf-numbers-items-2 row">
@@ -71,7 +71,7 @@ export default function ExportPage() {
               Target Markets
             </h3>
           </div>
-          {/* Interactive export-flow map (Kyegegwa -> world) */}
+          {/* Interactive export-flow map (Western Uganda -> world) */}
           <CoffeeFlowMap />
 
           {/* Accessible / crawlable market list under the canvas map */}
@@ -118,7 +118,7 @@ export default function ExportPage() {
               {[
                 { label: 'Species', value: 'Coffea canephora (Robusta)' },
                 { label: 'Type', value: 'Wild-type, genetically diverse' },
-                { label: 'Origin', value: 'Kyegegwa & Mubende, Uganda' },
+                { label: 'Origin', value: 'Western Uganda' },
                 { label: 'Altitude', value: '1,100–1,300 metres' },
                 { label: 'Processing', value: 'Washed / Natural' },
                 { label: 'SCA Score', value: '81–84 (Fine Robusta)' },

@@ -7,7 +7,7 @@ export default function MeaningSection() {
     {
       label: 'Crema Standard',
       title: 'Povu = the crema standard',
-      desc: "Specialty buyers judge Robusta by foam density. Kyegegwa's wild-type delivers consistently.",
+      desc: "Specialty buyers judge Robusta by foam density. Western Uganda's wild-type delivers consistently.",
     },
     {
       label: 'Traceability',

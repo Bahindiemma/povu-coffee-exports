@@ -43,7 +43,7 @@ export default function MainSlider() {
             />
             <div className="container">
               <div className="description align-left element-anim-1">
-                <div className="subtitles">From Kyegegwa to the World</div>
+                <div className="subtitles">From Western Uganda to the World</div>
                 <h2 className="name text-anim-1" data-splitting="chars">
                   Ethically Sourced
                   <br />

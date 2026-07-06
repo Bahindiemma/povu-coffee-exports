@@ -8,7 +8,7 @@ export default function OriginSection() {
   const facts = [
     { value: 'Tooro', desc: 'Ancient kingdom in western Uganda. Altitude 1,100–1,300 metres above sea level.' },
     { value: 'Wild', desc: 'Genetically diverse wild-type Robusta. Not cloned commercial varieties.' },
-    { value: '2', desc: 'Source districts: Kyegegwa (primary) and Mubende (secondary).' },
+    { value: '2', desc: 'Source districts: Western Uganda.' },
     { value: 'Sea+Air', desc: 'Dual export routes via Mombasa Port and Entebbe Airport.' },
   ];
 
@@ -26,7 +26,7 @@ export default function OriginSection() {
             The Origin
           </p>
           <h2 className="mb-4 font-display text-[clamp(32px,4vw,48px)] font-light text-cream">
-            Kyegegwa, Uganda
+            Western Uganda
           </h2>
           <p className="mx-auto max-w-lg font-sans text-[14px] font-light text-cream/40">
             Where wild-type Robusta grows in volcanic soil at elevations that most commercial farms never reach.

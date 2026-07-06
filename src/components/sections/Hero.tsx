@@ -20,7 +20,7 @@ export default function Hero() {
               transition={{ duration: 0.9, delay: 0.1 }}
               className="mb-6 font-sans text-[10px] font-medium uppercase tracking-[0.5em] text-gold"
             >
-              Kyegegwa &middot; Tooro Kingdom &middot; Uganda
+              Western Uganda
             </motion.p>
 
             <motion.h1
@@ -40,7 +40,7 @@ export default function Hero() {
               transition={{ duration: 0.9, delay: 0.5 }}
               className="mb-10 max-w-lg font-sans text-[clamp(14px,1.8vw,17px)] font-light leading-[1.8] text-cream/40"
             >
-              Uganda&apos;s rarest wild-type Robusta. Traceable to a named farmer in Kyegegwa.
+              Uganda&apos;s rarest wild-type Robusta. Traceable to a named farmer in Western Uganda.
               Graded with a software engineer&apos;s precision. This is not just coffee — it is
               a result you can taste and a story you can trust.
             </motion.p>

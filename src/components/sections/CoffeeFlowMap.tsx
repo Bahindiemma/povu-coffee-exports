@@ -2,14 +2,14 @@
 
 // Interactive coffee export-flow map for the /export page. Adapted from the
 // amCharts "Map Sankey: Global Coffee Supply Chain" pen, re-themed to POVU's
-// espresso/gold palette and re-centred on Uganda (Kyegegwa) -> export markets.
+// espresso/gold palette and re-centred on Western Uganda -> export markets.
 // amCharts is imported inside the effect so it only loads on this page (client
 // only) and never runs during SSR.
 
 import { useLayoutEffect, useRef } from 'react';
 
 // Uganda is the single origin; everything flows out to current + target markets.
-const ORIGIN = { id: 'UG', name: 'Uganda · Kyegegwa' };
+const ORIGIN = { id: 'UG', name: 'Western Uganda' };
 const MARKETS = [
   { id: 'DE', name: 'Germany', focus: 'Specialty roasters, direct trade', value: 100 },
   { id: 'NL', name: 'Netherlands', focus: 'Green bean importers, blenders', value: 85 },
@@ -121,7 +121,7 @@ export default function CoffeeFlowMap() {
         fill: gold,
         fillOpacity: 0.5,
         strokeOpacity: 0,
-        tooltipText: 'Kyegegwa → {targetNode.name}',
+        tooltipText: 'Western Uganda → {targetNode.name}',
       });
       sankey.nodes.mapPolygons.template.setAll({
         fill: goldLight,
@@ -201,7 +201,7 @@ export default function CoffeeFlowMap() {
       );
       titleCont.children.push(
         am5.Label.new(root, {
-          text: 'From Kyegegwa to the World',
+          text: 'From Western Uganda to the World',
           fontSize: 16,
           fontWeight: '600',
           fill: cream,
@@ -275,7 +275,7 @@ export default function CoffeeFlowMap() {
     <div
       ref={ref}
       role="img"
-      aria-label="Interactive map of POVU Coffee export flows from Kyegegwa, Uganda to Germany, Netherlands, Scandinavia, Italy, the UAE and Kenya"
+      aria-label="Interactive map of POVU Coffee export flows from Western Uganda to Germany, Netherlands, Scandinavia, Italy, the UAE and Kenya"
       style={{ width: '100%', height: 'clamp(380px, 52vw, 560px)' }}
     />
   );

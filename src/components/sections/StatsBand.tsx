@@ -10,7 +10,7 @@ interface Stat {
 }
 
 const STATS: Stat[] = [
-  { value: '2', label: 'Source Districts', sub: 'Kyegegwa & Mubende' },
+  { value: '2', label: 'Source Districts', sub: 'Western Uganda' },
   { value: '60kg+', label: 'Export Green Beans Ready', sub: 'Ready for international shipment' },
   { value: '100%', label: 'Above-Market Farmer Pay', sub: 'Farmers paid above commodity rate' },
   { value: 'Sea+Air', label: 'Dual Export Routes', sub: 'Entebbe Airport & Mombasa Port' },

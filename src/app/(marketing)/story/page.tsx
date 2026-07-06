@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Our Story',
-  description: 'How POVU Coffee was born — from Kyegegwa roots to global specialty coffee.',
+  description: 'How POVU Coffee was born — from Western Uganda roots to global specialty coffee.',
 };
 
 export default function StoryPage() {
@@ -34,7 +34,7 @@ export default function StoryPage() {
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-5">
               <div className="kf-titles">
                 <div className="kf-subtitle element-anim-1 scroll-animate" data-animate="active">
-                  From Kyegegwa to the World
+                  From Western Uganda to the World
                 </div>
                 <h3 className="kf-title element-anim-1 scroll-animate" data-animate="active">
                   The Story Behind POVU Coffee
@@ -44,7 +44,7 @@ export default function StoryPage() {
                 <Image src="/images/quote_img.png" alt="quote" width={40} height={40} />
                 <div>
                   POVU was not built to sell coffee. It was built to change what a cup of
-                  Kyegegwa Robusta is worth — to the farmer who grew it and to the world that drinks it.
+                  Western Uganda Robusta is worth — to the farmer who grew it and to the world that drinks it.
                 </div>
               </div>
               <p style={{ color: '#C9913A', marginTop: '10px', fontSize: '14px' }}>— The POVU Promise</p>
@@ -53,7 +53,7 @@ export default function StoryPage() {
               <div className="kf-text element-anim-1 scroll-animate" data-animate="active">
                 <h4 style={{ color: '#fff', marginBottom: '15px' }}>The Roots</h4>
                 <p>
-                  POVU begins in the high, red-soiled hills of Kyegegwa District in western Uganda,
+                  POVU begins in the high, red-soiled hills of Western Uganda,
                   where Robusta has been grown for generations. For too long that coffee left the
                   region as an anonymous commodity — undervalued, untraceable, and disconnected from
                   the hands that grew it.
@@ -62,7 +62,7 @@ export default function StoryPage() {
                 <p>
                   We set out to rebuild that supply chain from the farm up. Through digital farmer
                   profiling, professional grading standards, and above-market pricing, every bean is
-                  tied to a real farm and a fair price — proving that Kyegegwa Robusta belongs among
+                  tied to a real farm and a fair price — proving that Western Uganda Robusta belongs among
                   the world&apos;s finest specialty coffees.
                 </p>
                 <h4 style={{ color: '#fff', marginTop: '25px', marginBottom: '15px' }}>The Promise</h4>

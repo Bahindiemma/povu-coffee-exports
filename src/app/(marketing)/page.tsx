@@ -28,14 +28,14 @@ export default function HomePage() {
                 </div>
                 <h3 className="kf-title element-anim-1 scroll-animate" data-animate="active">
                   Premium Wild-Type Robusta <br />
-                  From Kyegegwa, Uganda
+                  From Western Uganda
                 </h3>
               </div>
               <div className="kf-text element-anim-1 scroll-animate" data-animate="active">
                 <p>
                   POVU (POH-VOO) is the Swahili word for foam — the golden crema that crowns a
                   perfect espresso shot. We source, grade, roast, and export wild-type Robusta coffee
-                  exclusively from Kyegegwa and Mubende districts in western Uganda. Every farmer in
+                  exclusively from Western Uganda. Every farmer in
                   our supply chain is profiled by name, location, and lot — and paid 100% above
                   market rate.
                 </p>
@@ -43,14 +43,14 @@ export default function HomePage() {
               <div className="kf-about-quote element-anim-1 scroll-animate" data-animate="active">
                 <Image src="/images/quote_img.png" alt="quote" width={40} height={40} />
                 <div>
-                  The first signal of quality is the foam on your espresso. Kyegegwa Robusta delivers
+                  The first signal of quality is the foam on your espresso. Western Uganda Robusta delivers
                   it every single time.
                 </div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-7">
               <div className="kf-about-image element-anim-1 scroll-animate" data-animate="active">
-                <Image src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=800&q=80" alt="POVU Coffee beans from Kyegegwa" width={800} height={600} className="w-full h-auto" />
+                <Image src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=800&q=80" alt="POVU Coffee beans from Western Uganda" width={800} height={600} className="w-full h-auto" />
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@ export default function HomePage() {
               </div>
               <div className="kf-text element-anim-1 scroll-animate" data-animate="active">
                 <p>
-                  POVU sources exclusively from Kyegegwa&apos;s wild-type Robusta trees — genetically diverse,
+                  POVU sources exclusively from Western Uganda&apos;s wild-type Robusta trees — genetically diverse,
                   deeply rooted, and shaped by decades of natural selection in volcanic red laterite soil
                   at 1,100–1,300m altitude.
                 </p>
@@ -184,7 +184,7 @@ export default function HomePage() {
               { img: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&q=80', name: 'Roasted Beans' },
               { img: 'https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=600&q=80', name: 'Fresh Harvest' },
               { img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80', name: 'Espresso Crema' },
-              { img: 'https://images.unsplash.com/photo-1524350876685-274059332603?w=600&q=80', name: 'Kyegegwa Farm' },
+              { img: 'https://images.unsplash.com/photo-1524350876685-274059332603?w=600&q=80', name: 'Western Uganda Farm' },
               { img: 'https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600&q=80', name: 'Processing' },
               { img: 'https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=600&q=80', name: 'Ground Coffee' },
               { img: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600&q=80', name: 'Farmer Profiles' },
@@ -267,7 +267,7 @@ export default function HomePage() {
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-8">
               <div className="kf-titles">
                 <div className="kf-subtitle element-anim-1 scroll-animate" data-animate="active">
-                  Source Kyegegwa Robusta at Scale
+                  Source Western Uganda Robusta at Scale
                 </div>
                 <h3 className="kf-title element-anim-1 scroll-animate" data-animate="active">
                   Export & Wholesale Enquiries Welcome

@@ -84,7 +84,7 @@ export default function ProductDetailPage() {
                   <text x="100" y="130" textAnchor="middle" fill="#F0E6CC" fontSize="7" fontFamily="Roboto, sans-serif" opacity="0.5">{product.name}</text>
                   <text x="100" y="155" textAnchor="middle" fill="#d4a97a" fontSize="10" fontFamily="Roboto, sans-serif">{variant.size}</text>
                   <rect x="15" y="230" width="170" height="40" rx="0" fill="#C9913A" opacity="0.12" />
-                  <text x="100" y="255" textAnchor="middle" fill="#C9913A" fontSize="7" fontFamily="Roboto, sans-serif" letterSpacing="2">KYEGEGWA · UGANDA</text>
+                  <text x="100" y="255" textAnchor="middle" fill="#C9913A" fontSize="7" fontFamily="Roboto, sans-serif" letterSpacing="2">WESTERN UGANDA</text>
                 </svg>
               </div>
             </div>
@@ -178,7 +178,7 @@ export default function ProductDetailPage() {
               {/* Meta Info */}
               <div style={{ borderTop: '1px solid rgba(185,146,114,0.15)', paddingTop: '15px' }}>
                 <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '13px', marginBottom: '5px' }}>Includes: {product.includes}</p>
-                <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '13px', marginBottom: '5px' }}>Origin: Kyegegwa District, Tooro Kingdom, Uganda</p>
+                <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '13px', marginBottom: '5px' }}>Origin: Western Uganda</p>
                 <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '13px' }}>Free shipping on orders above UGX 100,000</p>
               </div>
             </div>

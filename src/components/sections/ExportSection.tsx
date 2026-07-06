@@ -27,7 +27,7 @@ export default function ExportSection() {
               B2B &amp; Export
             </p>
             <h2 className="mb-8 font-display text-[clamp(32px,4vw,48px)] font-light text-cream">
-              Source Kyegegwa Robusta at Scale
+              Source Western Uganda Robusta at Scale
             </h2>
             <div className="mb-10 space-y-2">
               {features.map((f, i) => (

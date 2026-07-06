@@ -27,11 +27,11 @@ export const reviews: ReviewData[] = [
 export const faqs: FaqItem[] = [
   {
     question: 'What does POVU mean?',
-    answer: 'POVU (POH-VOO) is the Swahili word for foam — specifically the golden crema that crowns a great espresso shot. It is the first signal of quality that any specialty coffee buyer looks for, and Uganda\'s wild-type Robusta from Kyegegwa delivers it consistently.',
+    answer: 'POVU (POH-VOO) is the Swahili word for foam — specifically the golden crema that crowns a great espresso shot. It is the first signal of quality that any specialty coffee buyer looks for, and Uganda\'s wild-type Robusta from Western Uganda delivers it consistently.',
   },
   {
     question: 'Where does POVU coffee come from?',
-    answer: 'Every batch of POVU Robusta is sourced exclusively from Kyegegwa District in the Tooro Kingdom of western Uganda, and Mubende District. Every farmer in our supply chain is profiled by name, location, and lot — and paid above market rate directly by our founder.',
+    answer: 'Every batch of POVU Robusta is sourced exclusively from Western Uganda. Every farmer in our supply chain is profiled by name, location, and lot — and paid above market rate directly by our founder.',
   },
   {
     question: 'How do I pay?',
@@ -54,12 +54,12 @@ export const faqs: FaqItem[] = [
 export const blogPosts: BlogPost[] = [
   {
     slug: 'why-kyegegwa-robusta-different',
-    title: 'Why Kyegegwa Robusta Is Different',
+    title: 'Why Western Uganda Robusta Is Different',
     excerpt: 'Deep in western Uganda, wild-type Robusta grows in conditions that most commercial farms cannot replicate. Here is what makes it special.',
     category: 'Origin Education',
     date: '2026-03-15',
     readTime: '5 min read',
-    content: `In the foothills of the Rwenzori Mountains, in a district called Kyegegwa within the ancient Tooro Kingdom, coffee grows differently. These are not the cloned, high-yield Robusta varieties planted across Southeast Asia. These are wild-type trees — genetically diverse, deeply rooted, and shaped by decades of natural selection.
+    content: `In the foothills of the Rwenzori Mountains, in Western Uganda, coffee grows differently. These are not the cloned, high-yield Robusta varieties planted across Southeast Asia. These are wild-type trees — genetically diverse, deeply rooted, and shaped by decades of natural selection.
 
 The soil here is volcanic red laterite, rich in iron and organic matter. Altitude ranges from 1,100 to 1,300 metres — higher than most Robusta-growing regions, which typically sit below 800 metres. This elevation slows the cherry maturation, concentrating sugars and developing complexity that commercial Robusta rarely achieves.
 
@@ -106,7 +106,7 @@ The result: a 30ml shot with a crema layer that lasts 3–4 minutes in the cup. 
 ];
 
 export const tickerItems = [
-  'Kyegegwa Wild-Type Robusta',
+  'Western Uganda Wild-Type Robusta',
   'Pearl of Africa',
   'Ethically Sourced',
   'Fine Robusta Grade',

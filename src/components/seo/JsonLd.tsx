@@ -13,7 +13,7 @@ export const organizationSchema = {
   name: 'POVU Coffee Exports Limited',
   url: 'https://povu.coffee',
   logo: 'https://povu.coffee/images/povu-logo.png',
-  description: 'Premium wild-type Robusta from Kyegegwa, Uganda. Ethically sourced, digitally traced.',
+  description: 'Premium wild-type Robusta from Western Uganda. Ethically sourced, digitally traced.',
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+256773165989',
@@ -22,7 +22,7 @@ export const organizationSchema = {
   },
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Kyegegwa',
+    addressLocality: 'Western Uganda',
     addressRegion: 'Western Uganda',
     addressCountry: 'UG',
   },
@@ -38,7 +38,7 @@ export const websiteSchema = {
   '@type': 'WebSite',
   name: 'POVU Coffee',
   url: 'https://povu.coffee',
-  description: 'Premium wild-type Robusta from Kyegegwa, Uganda.',
+  description: 'Premium wild-type Robusta from Western Uganda.',
   publisher: { '@type': 'Organization', name: 'POVU Coffee Exports Limited' },
 };
 

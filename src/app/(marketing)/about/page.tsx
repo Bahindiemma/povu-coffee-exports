@@ -34,14 +34,14 @@ export default function AboutPage() {
                   About POVU Coffee
                 </div>
                 <h3 className="kf-title element-anim-1 scroll-animate" data-animate="active">
-                  Premium Wild-Type Robusta From Kyegegwa, Uganda
+                  Premium Wild-Type Robusta From Western Uganda
                 </h3>
               </div>
               <div className="kf-text element-anim-1 scroll-animate" data-animate="active">
                 <p>
                   POVU (POH-VOO) is the Swahili word for foam — the golden crema that crowns a great
                   espresso shot. It is the first signal of quality that any specialty coffee buyer looks
-                  for, and Uganda&apos;s wild-type Robusta from Kyegegwa delivers it consistently.
+                  for, and Uganda&apos;s wild-type Robusta from Western Uganda delivers it consistently.
                 </p>
                 <p style={{ marginTop: '15px' }}>
                   We are a COTE TECH (U) Ltd brand initiative that sources, grades, roasts, and exports
@@ -101,7 +101,7 @@ export default function AboutPage() {
                 <div className="num">2</div>
                 <div className="desc">
                   <h5 className="name">Source Districts</h5>
-                  <div className="subname">Kyegegwa & Mubende</div>
+                  <div className="subname">Western Uganda</div>
                 </div>
               </div>
             </div>
@@ -189,7 +189,7 @@ export default function AboutPage() {
                   Ready to Experience POVU?
                 </div>
                 <h3 className="kf-title element-anim-1 scroll-animate" data-animate="active">
-                  Shop Premium Kyegegwa Robusta
+                  Shop Premium Western Uganda Robusta
                 </h3>
               </div>
             </div>

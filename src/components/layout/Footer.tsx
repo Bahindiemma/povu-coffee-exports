@@ -101,7 +101,7 @@ export default function Footer() {
           {/* brand + newsletter */}
           <div>
             <p className="max-w-xs font-sans text-[13.5px] leading-relaxed text-cream/50">
-              Premium wild-type Robusta from Kyegegwa, Uganda. Ethically sourced, digitally traced.
+              Premium wild-type Robusta from Western Uganda. Ethically sourced, digitally traced.
             </p>
             <form onSubmit={subscribe} className="mt-6 flex max-w-xs overflow-hidden rounded-lg border border-gold/30">
               <input
@@ -168,7 +168,7 @@ export default function Footer() {
             <ul className="space-y-4 font-sans text-[13.5px] text-cream/55">
               <li className="flex gap-3">
                 <i className="las la-map-marker mt-0.5 text-lg text-gold" />
-                <span>Kyegegwa District, Tooro Kingdom, Western Uganda</span>
+                <span>Western Uganda</span>
               </li>
               <li className="flex gap-3">
                 <i className="las la-envelope-open-text mt-0.5 text-lg text-gold" />

@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'The Origin',
-  description: 'Kyegegwa District, Uganda — where POVU wild-type Robusta grows at altitude.',
+  description: 'Western Uganda — where POVU wild-type Robusta grows at altitude.',
 };
 
 export default function OriginPage() {
@@ -43,14 +43,14 @@ export default function OriginPage() {
         </div>
       </section>
 
-      {/* Kyegegwa Section */}
+      {/* Western Uganda Section */}
       <section className="section kf-choose kf-choose-2">
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-5 align-self-center">
               <div className="kf-titles">
                 <div className="kf-subtitle element-anim-1 scroll-animate" data-animate="active">
-                  Kyegegwa, Uganda
+                  Western Uganda
                 </div>
                 <h3 className="kf-title element-anim-1 scroll-animate" data-animate="active">
                   In the Foothills of the Rwenzori Mountains
@@ -58,7 +58,7 @@ export default function OriginPage() {
               </div>
               <div className="kf-text element-anim-1 scroll-animate" data-animate="active">
                 <p>
-                  In Kyegegwa District, within the ancient Tooro Kingdom of western Uganda, coffee
+                  In Western Uganda, coffee
                   grows differently. These are not cloned, high-yield Robusta varieties — these are
                   wild-type trees shaped by decades of natural selection.
                 </p>
@@ -71,7 +71,7 @@ export default function OriginPage() {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 offset-lg-1">
               <div className="kf-choose-image element-anim-1 scroll-animate" data-animate="active">
-                <Image src="https://images.unsplash.com/photo-1524350876685-274059332603?w=800&q=80" alt="Kyegegwa farmland" width={800} height={600} className="w-full h-auto" />
+                <Image src="https://images.unsplash.com/photo-1524350876685-274059332603?w=800&q=80" alt="Western Uganda farmland" width={800} height={600} className="w-full h-auto" />
               </div>
             </div>
           </div>
@@ -168,7 +168,7 @@ export default function OriginPage() {
                   Taste the Terroir
                 </div>
                 <h3 className="kf-title element-anim-1 scroll-animate" data-animate="active">
-                  Experience Kyegegwa in Every Cup
+                  Experience Western Uganda in Every Cup
                 </h3>
               </div>
             </div>

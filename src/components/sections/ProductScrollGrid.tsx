@@ -105,7 +105,7 @@ export default function ProductScrollGrid() {
           transition={{ duration: 0.6 }}
           className="mb-4 font-sans text-[11px] font-medium uppercase tracking-[0.4em] text-gold"
         >
-          Kyegegwa Wild-Type Robusta
+          Western Uganda Wild-Type Robusta
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
@@ -140,7 +140,7 @@ export default function ProductScrollGrid() {
           <div ref={scalerCellRef} className="psg-scaler">
             <motion.img
               src={U(SCALER)}
-              alt="POVU Kyegegwa wild-type Robusta beans"
+              alt="POVU Western Uganda wild-type Robusta beans"
               style={{ width: scalerW, height: scalerH }}
             />
           </div>

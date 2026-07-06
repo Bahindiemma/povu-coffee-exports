@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     template: '%s | POVU Coffee',
   },
   description:
-    'Premium wild-type Robusta from Kyegegwa, Uganda. Ethically sourced, digitally traced. Shop single packs, bundles and subscriptions.',
+    'Premium wild-type Robusta from Western Uganda. Ethically sourced, digitally traced. Shop single packs, bundles and subscriptions.',
   keywords: [
     'Uganda coffee',
-    'Kyegegwa Robusta',
+    'Western Uganda Robusta',
     'fine Robusta',
     'single origin Uganda',
     'buy Uganda coffee',
