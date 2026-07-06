@@ -172,7 +172,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3">
                 <i className="las la-envelope-open-text mt-0.5 text-lg text-gold" />
-                <a href="mailto:hello@povu.coffee" className="hover:text-gold">hello@povu.coffee</a>
+                <a href="mailto:sales@povu.coffee" className="hover:text-gold">sales@povu.coffee</a>
               </li>
               <li className="flex gap-3">
                 <i className="las la-phone mt-0.5 text-lg text-gold" />

@@ -221,7 +221,7 @@ export default function Header() {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <div className="kf-h-group">
-                <i className="fas fa-envelope" /> <em>Email :</em> hello@povu.coffee
+                <i className="fas fa-envelope" /> <em>Email :</em> sales@povu.coffee
               </div>
             </div>
           </div>

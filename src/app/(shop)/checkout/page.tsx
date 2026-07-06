@@ -103,7 +103,7 @@ export default function CheckoutPage() {
                     </div>
                     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6" style={{ marginBottom: '15px' }}>
                       <label style={labelStyle}>Email</label>
-                      <input {...register('email')} type="email" placeholder="hello@povu.coffee" style={fieldStyle} />
+                      <input {...register('email')} type="email" placeholder="sales@povu.coffee" style={fieldStyle} />
                       {errors.email && <p style={errorStyle}>{errors.email.message}</p>}
                     </div>
                     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6" style={{ marginBottom: '15px' }}>

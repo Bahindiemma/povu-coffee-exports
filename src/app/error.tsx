@@ -26,7 +26,7 @@ export default function Error({
               An unexpected error occurred
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '15px', lineHeight: '1.7', marginBottom: '30px' }}>
-              We apologise for the inconvenience. Please try again or contact us at hello@povu.coffee.
+              We apologise for the inconvenience. Please try again or contact us at sales@povu.coffee.
             </p>
             <button onClick={reset} className="kf-btn">
               <span>Try Again</span>

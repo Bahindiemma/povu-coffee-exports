@@ -47,7 +47,7 @@ export const faqs: FaqItem[] = [
   },
   {
     question: 'Can I buy POVU for my café, hotel, or business?',
-    answer: 'Yes. Contact hello@povu.coffee with your monthly volume requirement for tailored B2B pricing within 48 hours.',
+    answer: 'Yes. Contact sales@povu.coffee with your monthly volume requirement for tailored B2B pricing within 48 hours.',
   },
 ];
 

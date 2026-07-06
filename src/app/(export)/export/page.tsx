@@ -155,7 +155,7 @@ export default function ExportPage() {
           </div>
           <div className="row" style={{ justifyContent: 'center' }}>
             {[
-              { step: '01', title: 'Request Sample', desc: 'Fill out the enquiry form or email hello@povu.coffee.' },
+              { step: '01', title: 'Request Sample', desc: 'Fill out the enquiry form or email sales@povu.coffee.' },
               { step: '02', title: 'Receive & Cup', desc: 'We send a sample with full documentation.' },
               { step: '03', title: 'Contract & Ship', desc: 'Agree on terms, confirm lot, and we ship.' },
             ].map((item) => (

@@ -71,7 +71,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               ))}
             </div>
             <div className="border-t border-gold/18 px-6 py-5">
-              <p className="font-sans text-[11px] text-cream/20">hello@povu.coffee</p>
+              <p className="font-sans text-[11px] text-cream/20">sales@povu.coffee</p>
               <p className="mt-1 font-sans text-[9px] tracking-[0.2em] uppercase text-gold/30">The Crown of Every Cup</p>
             </div>
           </motion.nav>

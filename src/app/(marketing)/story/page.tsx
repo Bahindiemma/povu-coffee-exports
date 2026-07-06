@@ -8,20 +8,6 @@ export const metadata: Metadata = {
 };
 
 export default function StoryPage() {
-  const timeline = [
-    { year: 'Birth', event: 'Emmanuel Bahindi born in Kyegegwa District, western Uganda. Raised by grandmother from three months old.' },
-    { year: '2011', event: 'Mother passed away. Emmanuel in Primary Six. Grandmother continued raising him.' },
-    { year: 'PLE', event: 'Top student — First Grade, 8 aggregates. Won scholarships to Central College Mityana.' },
-    { year: 'UCE', event: 'Multiple distinctions at O-Level. Secured HESFB government loan for university.' },
-    { year: 'Makerere', event: 'Enrolled in Software Engineering at Makerere University. Built first software contract for UGX 600K.' },
-    { year: 'GDSC', event: 'Competed in Google Developer Student Clubs hackathon.' },
-    { year: 'Baylor', event: 'Worked with Baylor Uganda on health technology systems.' },
-    { year: 'Jan 2024', event: 'Graduated from Makerere University in Software Engineering.' },
-    { year: 'COTE TECH', event: 'Founded COTE TECH (U) Limited — building digital systems for African enterprises.' },
-    { year: '2025', event: 'Dual export routes established: Entebbe Airport + Mombasa Port.' },
-    { year: 'POVU', event: 'Returned to Kyegegwa with digital farmer profiling. Founded POVU Coffee.' },
-  ];
-
   return (
     <>
       {/* Section Started Inner */}
@@ -87,34 +73,6 @@ export default function StoryPage() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="section kf-services section-bg">
-        <div className="container">
-          <div className="kf-titles align-center">
-            <div className="kf-subtitle element-anim-1 scroll-animate" data-animate="active">
-              Key Milestones
-            </div>
-            <h3 className="kf-title element-anim-1 scroll-animate" data-animate="active">
-              The POVU Journey
-            </h3>
-          </div>
-          <div className="row">
-            {timeline.map((item, index) => (
-              <div key={index} className="col-xs-12 col-sm-12 col-md-6 col-lg-4" style={{ marginBottom: '30px' }}>
-                <div className="kf-services-item-2 element-anim-1 scroll-animate" data-animate="active">
-                  <div className="image">
-                    <span style={{ fontFamily: 'Oswald, sans-serif', fontSize: '36px', color: '#C9913A', fontWeight: 700 }}>{item.year}</span>
-                  </div>
-                  <div className="desc">
-                    <div className="subname">{item.event}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
