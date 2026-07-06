@@ -43,33 +43,34 @@ export default function StoryPage() {
               <div className="kf-about-quote element-anim-1 scroll-animate" data-animate="active">
                 <Image src="/images/quote_img.png" alt="quote" width={40} height={40} />
                 <div>
-                  I did not build POVU to sell coffee. I built it to change what a cup of
+                  POVU was not built to sell coffee. It was built to change what a cup of
                   Kyegegwa Robusta is worth — to the farmer who grew it and to the world that drinks it.
                 </div>
               </div>
-              <p style={{ color: '#C9913A', marginTop: '10px', fontSize: '14px' }}>— Emmanuel Bahindi, Founder & CEO</p>
+              <p style={{ color: '#C9913A', marginTop: '10px', fontSize: '14px' }}>— The POVU Promise</p>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-7">
               <div className="kf-text element-anim-1 scroll-animate" data-animate="active">
-                <h4 style={{ color: '#fff', marginBottom: '15px' }}>The Beginning</h4>
+                <h4 style={{ color: '#fff', marginBottom: '15px' }}>The Roots</h4>
                 <p>
-                  Born in Kyegegwa District to a mother with a serious mental illness, Emmanuel was
-                  raised by his elderly grandmother from three months old. She fed him mashed Irish
-                  potatoes mixed with milk — not tradition, but all she could afford.
+                  POVU begins in the high, red-soiled hills of Kyegegwa District in western Uganda,
+                  where Robusta has been grown for generations. For too long that coffee left the
+                  region as an anonymous commodity — undervalued, untraceable, and disconnected from
+                  the hands that grew it.
                 </p>
-                <h4 style={{ color: '#fff', marginTop: '25px', marginBottom: '15px' }}>The Student</h4>
+                <h4 style={{ color: '#fff', marginTop: '25px', marginBottom: '15px' }}>The Mission</h4>
                 <p>
-                  Despite everything, Emmanuel became the top student in his rural community. A HESFB
-                  government loan took him to Makerere University to study Software Engineering. He
-                  survived on Kikomando in a leaking room in Nakulabye and coded his first software
-                  contract for UGX 600,000.
+                  We set out to rebuild that supply chain from the farm up. Through digital farmer
+                  profiling, professional grading standards, and above-market pricing, every bean is
+                  tied to a real farm and a fair price — proving that Kyegegwa Robusta belongs among
+                  the world&apos;s finest specialty coffees.
                 </p>
-                <h4 style={{ color: '#fff', marginTop: '25px', marginBottom: '15px' }}>The Return</h4>
+                <h4 style={{ color: '#fff', marginTop: '25px', marginBottom: '15px' }}>The Promise</h4>
                 <p>
-                  After founding COTE TECH (U) Ltd, he did what no one expected — he returned to
-                  Kyegegwa. Armed with digital farmer profiling, professional grading standards, and
-                  above-market pricing, he built what no supply chain had ever offered those farmers:
-                  dignity. POVU Coffee was born.
+                  Every cup carries that promise forward: full traceability from farm to export,
+                  quality that speaks for itself, and dignity for the farmers behind it. POVU Coffee
+                  exists to change what a cup of Uganda&apos;s coffee is worth — for the people who
+                  grow it and the world that drinks it.
                 </p>
               </div>
             </div>
